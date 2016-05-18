@@ -108,7 +108,7 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             state = 2
             start = true
             startButton.setTitle("Stop", forState: .Normal)
-            let aSelector : Selector = "updateTime"
+            let aSelector : Selector = #selector(RecordViewController.updateTime)
             if (!timer.valid && isPause == false){
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
                 startTime = NSDate.timeIntervalSinceReferenceDate()
@@ -265,12 +265,15 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     }
     
     func resetAll(){
+        
         //This function resets all values recorded
+        
         state = 1
         startButton.setTitle("Start", forState: .Normal)
         distanceText.text = "0 m"
         timeText.text = "00:00:00"
         speedText.text = "0"
+        
         distance = 0
         speed = 0
         mapView.removeOverlays(mapView.overlays)
@@ -280,13 +283,7 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         seconds = 0
         fraction = 0
         
-        
         locations = [CLLocation]()
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -306,7 +303,10 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         }
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////
     
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
 }

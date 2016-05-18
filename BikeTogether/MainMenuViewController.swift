@@ -19,11 +19,13 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var errorWeather: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Ask for Location Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
+        
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -46,6 +48,9 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidAppear(animated: Bool) {
         
+        print("===========================")
+        print("MainMenuViewController")
+        
         //Update current location
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -55,11 +60,6 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         //Current location method - edit here when have current location what do you want to do
@@ -92,13 +92,17 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
         let url = NSURL(string: path1+lat+path2+long+apiKey)
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
-            //print(url)
             
-            //Using SwiftyJSON to handle JSON
             if data == nil{
+                
+                //Error retrieving
                 self.errorWeather.hidden = false
+                
             }
             else{
+                
+                //Sucessful
+                
                 let json = JSON(data: data!)
                 let cityName = json["name"].string
                 let temp = json["main"]["temp"].double
@@ -139,6 +143,7 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
                         
                 }
             })
+                //Show weather information
                 self.weatherImage.hidden = false
                 self.tempLabel.hidden = false
                 self.cityLabel.hidden = false
@@ -170,6 +175,12 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func backToMain (sender: UIStoryboardSegue){
         //For unwind segue to this view controller
     }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }
 

@@ -10,6 +10,7 @@
 import Foundation
 import UIKit
 
+
 func backToMainMenuOnYes(sender: AnyObject){
     
     ////////////////////////////////////////////////////////////////////////////////
@@ -30,6 +31,11 @@ func backToMainMenuOnYes(sender: AnyObject){
     
     sender.presentViewController(alert, animated: true, completion: nil)
 }
+
+
+
+
+
 
 func dismissViewMethod (sender: AnyObject, title: String, message: String, OnYes: Bool){
     
@@ -76,6 +82,11 @@ func dismissViewMethod (sender: AnyObject, title: String, message: String, OnYes
         sender.presentViewController(alert, animated: true, completion: nil)
     }
 }
+
+
+
+
+
 
 func normalAlert(sender: AnyObject, title: String, message: String){
     

@@ -59,7 +59,6 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
             normalAlert(self, title: "Route Name Already Exist", message: "Please input a new route name")
         }else{
         for (var i = 0; i < locations.count; i += 1){
-
             /*print(locations[i].coordinate.latitude)
                 //Check if item exists
                 if(existingItem != nil){
@@ -109,7 +108,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
 
         
         ////////////////////////////////////////////////////////////////////////////////
-        //Facebook share
+        /*//Facebook share
         
         let content : FBSDKShareLinkContent = FBSDKShareLinkContent()
         //content.contentURL = NSURL(string: "https://www.facebook.com/FacebookDevelopers")!
@@ -120,7 +119,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         let shareButton: FBSDKShareButton = FBSDKShareButton()
         shareButton.shareContent = content
         shareButton.center = self.view.center
-        self.view!.addSubview(shareButton)
+        self.view!.addSubview(shareButton)*/
         ////////////////////////////////////////////////////////////////////////////////
     }
     
