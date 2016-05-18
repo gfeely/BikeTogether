@@ -7,12 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21BA7C941CECF6A2003E9B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7C931CECF6A2003E9B2A /* AppDelegate.swift */; };
-		21BA7C961CECF6A2003E9B2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7C951CECF6A2003E9B2A /* ViewController.swift */; };
-		21BA7C991CECF6A2003E9B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BA7C971CECF6A2003E9B2A /* Main.storyboard */; };
-		21BA7C9C1CECF6A2003E9B2A /* BikeTogether.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7C9A1CECF6A2003E9B2A /* BikeTogether.xcdatamodeld */; };
-		21BA7C9E1CECF6A2003E9B2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BA7C9D1CECF6A2003E9B2A /* Assets.xcassets */; };
-		21BA7CA11CECF6A2003E9B2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BA7C9F1CECF6A2003E9B2A /* LaunchScreen.storyboard */; };
+		213CC54E1CECF7060017456A /* alertMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5391CECF7060017456A /* alertMethods.swift */; };
+		213CC54F1CECF7060017456A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC53A1CECF7060017456A /* AppDelegate.swift */; };
+		213CC5501CECF7060017456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 213CC53B1CECF7060017456A /* Assets.xcassets */; };
+		213CC5511CECF7060017456A /* BikeTogether.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 213CC53C1CECF7060017456A /* BikeTogether.xcdatamodeld */; };
+		213CC5521CECF7060017456A /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC53F1CECF7060017456A /* FinishViewController.swift */; };
+		213CC5531CECF7060017456A /* IndiRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5401CECF7060017456A /* IndiRecordViewController.swift */; };
+		213CC5541CECF7060017456A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 213CC5411CECF7060017456A /* Info.plist */; };
+		213CC5551CECF7060017456A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213CC5421CECF7060017456A /* LaunchScreen.storyboard */; };
+		213CC5561CECF7060017456A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5431CECF7060017456A /* LogInViewController.swift */; };
+		213CC5571CECF7060017456A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213CC5441CECF7060017456A /* Main.storyboard */; };
+		213CC5581CECF7060017456A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5451CECF7060017456A /* MainMenuViewController.swift */; };
+		213CC5591CECF7060017456A /* mapMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5461CECF7060017456A /* mapMethods.swift */; };
+		213CC55A1CECF7060017456A /* PastRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5471CECF7060017456A /* PastRecordViewController.swift */; };
+		213CC55B1CECF7060017456A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213CC5481CECF7060017456A /* Profile.storyboard */; };
+		213CC55C1CECF7060017456A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5491CECF7060017456A /* ProfileViewController.swift */; };
+		213CC55D1CECF7060017456A /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC54A1CECF7060017456A /* RecordViewController.swift */; };
+		213CC55E1CECF7060017456A /* Social.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213CC54B1CECF7060017456A /* Social.storyboard */; };
+		213CC55F1CECF7060017456A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC54C1CECF7060017456A /* SwiftyJSON.swift */; };
+		213CC5601CECF7060017456A /* UserRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC54D1CECF7060017456A /* UserRecordTableViewController.swift */; };
+		213CC5671CECF77F0017456A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213CC5641CECF77F0017456A /* FBSDKCoreKit.framework */; };
+		213CC5681CECF77F0017456A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213CC5651CECF77F0017456A /* FBSDKLoginKit.framework */; };
+		213CC5691CECF77F0017456A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213CC5661CECF77F0017456A /* FBSDKShareKit.framework */; };
+		213CC56B1CECF9050017456A /* databaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC56A1CECF9050017456A /* databaseMethods.swift */; };
 		21BA7CAC1CECF6A2003E9B2A /* BikeTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7CAB1CECF6A2003E9B2A /* BikeTogetherTests.swift */; };
 		21BA7CB71CECF6A2003E9B2A /* BikeTogetherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7CB61CECF6A2003E9B2A /* BikeTogetherUITests.swift */; };
 /* End PBXBuildFile section */
@@ -35,14 +52,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		213CC5391CECF7060017456A /* alertMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alertMethods.swift; sourceTree = "<group>"; };
+		213CC53A1CECF7060017456A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		213CC53B1CECF7060017456A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		213CC53D1CECF7060017456A /* BikeTogether.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BikeTogether.xcdatamodel; sourceTree = "<group>"; };
+		213CC53E1CECF7060017456A /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "BikeTogether/Bridging-Header.h"; sourceTree = "<group>"; };
+		213CC53F1CECF7060017456A /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
+		213CC5401CECF7060017456A /* IndiRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndiRecordViewController.swift; sourceTree = "<group>"; };
+		213CC5411CECF7060017456A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		213CC5421CECF7060017456A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		213CC5431CECF7060017456A /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		213CC5441CECF7060017456A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		213CC5451CECF7060017456A /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		213CC5461CECF7060017456A /* mapMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMethods.swift; sourceTree = "<group>"; };
+		213CC5471CECF7060017456A /* PastRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRecordViewController.swift; sourceTree = "<group>"; };
+		213CC5481CECF7060017456A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		213CC5491CECF7060017456A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		213CC54A1CECF7060017456A /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		213CC54B1CECF7060017456A /* Social.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Social.storyboard; sourceTree = "<group>"; };
+		213CC54C1CECF7060017456A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		213CC54D1CECF7060017456A /* UserRecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecordTableViewController.swift; sourceTree = "<group>"; };
+		213CC5641CECF77F0017456A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		213CC5651CECF77F0017456A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		213CC5661CECF77F0017456A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		213CC56A1CECF9050017456A /* databaseMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = databaseMethods.swift; sourceTree = "<group>"; };
 		21BA7C901CECF6A2003E9B2A /* BikeTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		21BA7C931CECF6A2003E9B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		21BA7C951CECF6A2003E9B2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		21BA7C981CECF6A2003E9B2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		21BA7C9B1CECF6A2003E9B2A /* BikeTogether.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BikeTogether.xcdatamodel; sourceTree = "<group>"; };
-		21BA7C9D1CECF6A2003E9B2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		21BA7CA01CECF6A2003E9B2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		21BA7CA21CECF6A2003E9B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BA7CA71CECF6A2003E9B2A /* BikeTogetherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTogetherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BA7CAB1CECF6A2003E9B2A /* BikeTogetherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeTogetherTests.swift; sourceTree = "<group>"; };
 		21BA7CAD1CECF6A2003E9B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213CC5681CECF77F0017456A /* FBSDKLoginKit.framework in Frameworks */,
+				213CC5671CECF77F0017456A /* FBSDKCoreKit.framework in Frameworks */,
+				213CC5691CECF77F0017456A /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,10 +113,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		213CC5381CECF7060017456A /* BikeTogether */ = {
+			isa = PBXGroup;
+			children = (
+				213CC53A1CECF7060017456A /* AppDelegate.swift */,
+				213CC53C1CECF7060017456A /* BikeTogether.xcdatamodeld */,
+				213CC53B1CECF7060017456A /* Assets.xcassets */,
+				213CC5621CECF74B0017456A /* Methods */,
+				213CC5631CECF7630017456A /* View Controllers */,
+				213CC5411CECF7060017456A /* Info.plist */,
+				213CC5611CECF7210017456A /* Storyboard */,
+			);
+			path = BikeTogether;
+			sourceTree = "<group>";
+		};
+		213CC5611CECF7210017456A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				213CC5421CECF7060017456A /* LaunchScreen.storyboard */,
+				213CC5441CECF7060017456A /* Main.storyboard */,
+				213CC5481CECF7060017456A /* Profile.storyboard */,
+				213CC54B1CECF7060017456A /* Social.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		213CC5621CECF74B0017456A /* Methods */ = {
+			isa = PBXGroup;
+			children = (
+				213CC5391CECF7060017456A /* alertMethods.swift */,
+				213CC5461CECF7060017456A /* mapMethods.swift */,
+				213CC54C1CECF7060017456A /* SwiftyJSON.swift */,
+				213CC56A1CECF9050017456A /* databaseMethods.swift */,
+			);
+			name = Methods;
+			sourceTree = "<group>";
+		};
+		213CC5631CECF7630017456A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				213CC5431CECF7060017456A /* LogInViewController.swift */,
+				213CC5451CECF7060017456A /* MainMenuViewController.swift */,
+				213CC56C1CECFF560017456A /* Ride Recording */,
+				213CC56D1CECFFCC0017456A /* Profile Page */,
+				213CC56E1CECFFF80017456A /* New profile */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		213CC56C1CECFF560017456A /* Ride Recording */ = {
+			isa = PBXGroup;
+			children = (
+				213CC54A1CECF7060017456A /* RecordViewController.swift */,
+				213CC53F1CECF7060017456A /* FinishViewController.swift */,
+			);
+			name = "Ride Recording";
+			sourceTree = "<group>";
+		};
+		213CC56D1CECFFCC0017456A /* Profile Page */ = {
+			isa = PBXGroup;
+			children = (
+				213CC5471CECF7060017456A /* PastRecordViewController.swift */,
+				213CC5491CECF7060017456A /* ProfileViewController.swift */,
+			);
+			name = "Profile Page";
+			sourceTree = "<group>";
+		};
+		213CC56E1CECFFF80017456A /* New profile */ = {
+			isa = PBXGroup;
+			children = (
+				213CC5401CECF7060017456A /* IndiRecordViewController.swift */,
+				213CC54D1CECF7060017456A /* UserRecordTableViewController.swift */,
+			);
+			name = "New profile";
+			sourceTree = "<group>";
+		};
 		21BA7C871CECF6A2003E9B2A = {
 			isa = PBXGroup;
 			children = (
-				21BA7C921CECF6A2003E9B2A /* BikeTogether */,
+				213CC53E1CECF7060017456A /* Bridging-Header.h */,
+				213CC5641CECF77F0017456A /* FBSDKCoreKit.framework */,
+				213CC5651CECF77F0017456A /* FBSDKLoginKit.framework */,
+				213CC5661CECF77F0017456A /* FBSDKShareKit.framework */,
+				213CC5381CECF7060017456A /* BikeTogether */,
 				21BA7CAA1CECF6A2003E9B2A /* BikeTogetherTests */,
 				21BA7CB51CECF6A2003E9B2A /* BikeTogetherUITests */,
 				21BA7C911CECF6A2003E9B2A /* Products */,
@@ -94,20 +210,6 @@
 				21BA7CB21CECF6A2003E9B2A /* BikeTogetherUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		21BA7C921CECF6A2003E9B2A /* BikeTogether */ = {
-			isa = PBXGroup;
-			children = (
-				21BA7C931CECF6A2003E9B2A /* AppDelegate.swift */,
-				21BA7C951CECF6A2003E9B2A /* ViewController.swift */,
-				21BA7C971CECF6A2003E9B2A /* Main.storyboard */,
-				21BA7C9D1CECF6A2003E9B2A /* Assets.xcassets */,
-				21BA7C9F1CECF6A2003E9B2A /* LaunchScreen.storyboard */,
-				21BA7CA21CECF6A2003E9B2A /* Info.plist */,
-				21BA7C9A1CECF6A2003E9B2A /* BikeTogether.xcdatamodeld */,
-			);
-			path = BikeTogether;
 			sourceTree = "<group>";
 		};
 		21BA7CAA1CECF6A2003E9B2A /* BikeTogetherTests */ = {
@@ -232,9 +334,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BA7CA11CECF6A2003E9B2A /* LaunchScreen.storyboard in Resources */,
-				21BA7C9E1CECF6A2003E9B2A /* Assets.xcassets in Resources */,
-				21BA7C991CECF6A2003E9B2A /* Main.storyboard in Resources */,
+				213CC5551CECF7060017456A /* LaunchScreen.storyboard in Resources */,
+				213CC5541CECF7060017456A /* Info.plist in Resources */,
+				213CC55B1CECF7060017456A /* Profile.storyboard in Resources */,
+				213CC5501CECF7060017456A /* Assets.xcassets in Resources */,
+				213CC5571CECF7060017456A /* Main.storyboard in Resources */,
+				213CC55E1CECF7060017456A /* Social.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +364,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BA7C9C1CECF6A2003E9B2A /* BikeTogether.xcdatamodeld in Sources */,
-				21BA7C961CECF6A2003E9B2A /* ViewController.swift in Sources */,
-				21BA7C941CECF6A2003E9B2A /* AppDelegate.swift in Sources */,
+				213CC5531CECF7060017456A /* IndiRecordViewController.swift in Sources */,
+				213CC56B1CECF9050017456A /* databaseMethods.swift in Sources */,
+				213CC5511CECF7060017456A /* BikeTogether.xcdatamodeld in Sources */,
+				213CC55C1CECF7060017456A /* ProfileViewController.swift in Sources */,
+				213CC55F1CECF7060017456A /* SwiftyJSON.swift in Sources */,
+				213CC5601CECF7060017456A /* UserRecordTableViewController.swift in Sources */,
+				213CC5561CECF7060017456A /* LogInViewController.swift in Sources */,
+				213CC55A1CECF7060017456A /* PastRecordViewController.swift in Sources */,
+				213CC55D1CECF7060017456A /* RecordViewController.swift in Sources */,
+				213CC5521CECF7060017456A /* FinishViewController.swift in Sources */,
+				213CC5581CECF7060017456A /* MainMenuViewController.swift in Sources */,
+				213CC5591CECF7060017456A /* mapMethods.swift in Sources */,
+				213CC54F1CECF7060017456A /* AppDelegate.swift in Sources */,
+				213CC54E1CECF7060017456A /* alertMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +411,6 @@
 			targetProxy = 21BA7CB31CECF6A2003E9B2A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		21BA7C971CECF6A2003E9B2A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21BA7C981CECF6A2003E9B2A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		21BA7C9F1CECF6A2003E9B2A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21BA7CA01CECF6A2003E9B2A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		21BA7CB91CECF6A2003E9B2A /* Debug */ = {
@@ -403,10 +500,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BikeTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.ac.mahidol.egci313.BikeTogether;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -414,10 +516,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BikeTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.ac.mahidol.egci313.BikeTogether;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -486,6 +593,7 @@
 				21BA7CBD1CECF6A2003E9B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21BA7CBE1CECF6A2003E9B2A /* Build configuration list for PBXNativeTarget "BikeTogetherTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +602,7 @@
 				21BA7CC01CECF6A2003E9B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21BA7CC11CECF6A2003E9B2A /* Build configuration list for PBXNativeTarget "BikeTogetherUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,16 +611,17 @@
 				21BA7CC31CECF6A2003E9B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		21BA7C9A1CECF6A2003E9B2A /* BikeTogether.xcdatamodeld */ = {
+		213CC53C1CECF7060017456A /* BikeTogether.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				21BA7C9B1CECF6A2003E9B2A /* BikeTogether.xcdatamodel */,
+				213CC53D1CECF7060017456A /* BikeTogether.xcdatamodel */,
 			);
-			currentVersion = 21BA7C9B1CECF6A2003E9B2A /* BikeTogether.xcdatamodel */;
+			currentVersion = 213CC53D1CECF7060017456A /* BikeTogether.xcdatamodel */;
 			path = BikeTogether.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
