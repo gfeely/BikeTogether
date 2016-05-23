@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Groups-->
         <scene sceneID="RdW-mh-qrm">
             <objects>
                 <viewController id="B8F-aU-I7P" sceneMemberID="viewController">
@@ -13,13 +14,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="hwg-Mq-cDF"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="so_gr" selectedImage="so_grF" id="hwg-Mq-cDF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1x-v1-VMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="376" y="550.01333333333332"/>
         </scene>
-        <!--Item 1-->
+        <!--Friends-->
         <scene sceneID="AXJ-CK-IvQ">
             <objects>
                 <viewController id="ghV-MK-MUP" sceneMemberID="viewController">
@@ -28,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="hSC-bE-Hdu"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="so_contact" selectedImage="so_contactF" id="hSC-bE-Hdu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVS-gQ-opy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,4 +54,10 @@
             <point key="canvasLocation" x="-61.333333333333336" y="237.61333333333334"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="so_contact" width="25" height="25"/>
+        <image name="so_contactF" width="25" height="25"/>
+        <image name="so_gr" width="25" height="25"/>
+        <image name="so_grF" width="25" height="25"/>
+    </resources>
 </document>

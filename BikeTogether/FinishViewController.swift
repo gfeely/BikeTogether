@@ -40,59 +40,37 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func saveMethod() {
         
-        /////////////////////////////////////////////////////////////////////////////////////
-        // Save to to database
-        let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context:NSManagedObjectContext? = appDel.managedObjectContext
-        let en = NSEntityDescription.entityForName("Record", inManagedObjectContext:context!)
+        // Save to to online database
+        // Add to riderecord, rideactivity
         
-        let freq = NSFetchRequest(entityName: "Record")
-        //Fetch all with the same name and sort it using key
-        let predicate: NSPredicate = NSPredicate(format: "name = %@", nameTextField.text!)
-        freq.predicate = predicate
-        let sortDescriptor = NSSortDescriptor(key: "key", ascending: true)
-        freq.sortDescriptors = [sortDescriptor]
-        let list = try! context?.executeFetchRequest(freq)
-        
-        //If route name already exist, do not save the record. Else, save the new record
-        if(list?.count > 0){
-            normalAlert(self, title: "Route Name Already Exist", message: "Please input a new route name")
-        }else{
-        for (var i = 0; i < locations.count; i += 1){
-            /*print(locations[i].coordinate.latitude)
-                //Check if item exists
-                if(existingItem != nil){
-                    existingItem?.setValue(nameTextField.text, forKey: "name")
-                    existingItem?.setValue(timeStamp.text, forKey: "timeStamp")
-                    existingItem?.setValue(totalDistLabel.text, forKey: "distance")
-                    existingItem?.setValue(timeTaken, forKey: "timeTaken")
-                    existingItem?.setValue(i+1, forKey: "key")
-                    existingItem?.setValue(locations[i].coordinate.latitude, forKey: "latitude")
-                    existingItem?.setValue(locations[i].coordinate.longitude, forKey: "longitude")
+        repeatRname(nameTextField.text!, completionHandler:
+            { result in
+                print("Respond result: \(result)")
+                if result == 0{
+                    normalAlert(self, title: "Name Already Exist", message: "Please re-enter a new route name.")
                 }
-                else {
-                    let newItem = Record(entity:en!, insertIntoManagedObjectContext:context!)
-                    newItem.name = nameTextField.text
-                    newItem.timeStamp = timeStamp.text! as String
-                    newItem.distance = totalDistLabel.text! as String
-                    newItem.timeTaken = timeTaken
-                    newItem.key = i+1
-                    newItem.latitude = locations[i].coordinate.latitude as NSNumber
-                    newItem.longitude = locations[i].coordinate.longitude as NSNumber
+                else{
+                    recordNewRide(userID, rname: self.nameTextField.text!, timeduration: self.timeTaken, distance: self.distance, starttimestamp: self.startTimeStamp, stoptimestamp: self.stopTimeStamp,completionHandler:{ rid in
+                        
+                        if rid != 0{
+                            var count = 1
+                            for i in self.locations{
+                                recordRideLocation(rid, uid: userID, latitude: i.coordinate.latitude, longitude: i.coordinate.longitude, mapKey: count)
+                                count += 1
+                            }
+                        }
+                    })
                 }
-                do {
-                    try context?.save()
-                    dismissViewMethod(self, title: "Record Saved", message: "none", OnYes: false)
-                } catch _ {
-            }*/
-            }}
-        /////////////////////////////////////////////////////////////////////////////////////
-    
+        })
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("===========================")
+        print("FinishViewController")
+        
         //////////////////////////////////////////////////////////////////////////////////
         //User Interface Decorations
         //Save Button
@@ -140,6 +118,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
             dtn = round(dtn*100)/100
             totalDistLabel.text = String("\(dtn) km")
         }
+        
         timeTakenLabel.text = timeTaken
         /////////////////////////////////////////////////////////////////////////////////////
         

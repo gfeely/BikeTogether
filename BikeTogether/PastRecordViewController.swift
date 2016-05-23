@@ -70,7 +70,6 @@ class PastRecordViewController: UIViewController, MKMapViewDelegate{
             timeTakenLabel.text = data1.valueForKey("timeTaken") as? String
             ///////////////////////////////////////////////
 
-            //Drawing the route
             for(var i = 0; i < list!.count; i += 1){
                 let data3 = list![i] as! NSManagedObject
                 let la1 = data3.valueForKeyPath("latitude") as! Double

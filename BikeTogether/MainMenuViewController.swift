@@ -25,7 +25,7 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
         
         // Ask for Location Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
-        
+
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -62,14 +62,16 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        //Current location method - edit here when have current location what do you want to do
-
+        
+        //Fail to get error, do:
         let alertBox = UIAlertController(title: "Alert", message: "Fail to get location", preferredStyle: UIAlertControllerStyle.Alert)
         alertBox.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil ))
         self.presentViewController(alertBox, animated: true, completion: nil)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+        
+        //Able to get location, do:
         let currentLocation: CLLocation = newLocation
         
         //Use current location for updateWeather

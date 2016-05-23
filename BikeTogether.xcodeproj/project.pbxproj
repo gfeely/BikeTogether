@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211503F81CEF461900CC65F9 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211503F71CEF461900CC65F9 /* UserProfileViewController.swift */; };
 		213CC54E1CECF7060017456A /* alertMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5391CECF7060017456A /* alertMethods.swift */; };
 		213CC54F1CECF7060017456A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC53A1CECF7060017456A /* AppDelegate.swift */; };
 		213CC5501CECF7060017456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 213CC53B1CECF7060017456A /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211503F71CEF461900CC65F9 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		213CC5391CECF7060017456A /* alertMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alertMethods.swift; sourceTree = "<group>"; };
 		213CC53A1CECF7060017456A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		213CC53B1CECF7060017456A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				213CC5401CECF7060017456A /* IndiRecordViewController.swift */,
 				213CC54D1CECF7060017456A /* UserRecordTableViewController.swift */,
+				211503F71CEF461900CC65F9 /* UserProfileViewController.swift */,
 			);
 			name = "New profile";
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				213CC5531CECF7060017456A /* IndiRecordViewController.swift in Sources */,
+				211503F81CEF461900CC65F9 /* UserProfileViewController.swift in Sources */,
 				213CC56B1CECF9050017456A /* databaseMethods.swift in Sources */,
 				213CC5511CECF7060017456A /* BikeTogether.xcdatamodeld in Sources */,
 				213CC55C1CECF7060017456A /* ProfileViewController.swift in Sources */,
