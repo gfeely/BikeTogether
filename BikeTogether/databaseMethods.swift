@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -179,6 +180,51 @@ func recordRideLocation (rid: Int, uid: Int, latitude: Double, longitude: Double
     
 }
 
+
+func viewLocation(rid: Int, handler: (locations: Array<CLLocation>, c: Int) -> ()) {
+    
+    var loc: Array<CLLocation> = []
+    
+    let session = NSURLSession.sharedSession()
+    let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/viewlocation.php/")!)
+    request.HTTPMethod = "POST"
+    let postString = "uid=\(userID)&rid=\(rid)"
+    
+    request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+    
+    let dataTask = session.dataTaskWithRequest(request) {
+        (data: NSData?, response: NSURLResponse?, error: NSError?) in
+        if let error = error {
+            // Case 1: Error
+            // We got some kind of error while trying to get data from the server.
+            print("Error:\n\(error)")
+        }
+        else {
+            // Case 2: Success
+            // We got a response from the server!
+            print("** View location (DBMETHOD)**")
+            
+            let json = JSON(data: data!)
+            let count = json["latitude"].count
+            print(count)
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                if count > 0 {
+                    for i in 0...count-1{
+                        let latitude = Double(json["latitude"][i].string!)
+                        let longitude = Double(json["longitude"][i].string!)
+                        //print(latitude)
+                    
+                        let location = CLLocation(latitude: latitude!, longitude: longitude!)
+                        loc.append(location)
+                    }
+                    handler(locations: loc, c: count)
+                }})
+        }
+    }
+    dataTask.resume()
+
+}
 
 ///
 

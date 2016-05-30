@@ -10,7 +10,6 @@ import UIKit
 
 class UserProfileViewController: UIViewController {
 
-    @IBOutlet weak var effectProfileImage: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
@@ -18,9 +17,6 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         
         userNameLabel.text = "\(strFirstName) \(strLastName)"
-        
-        self.effectProfileImage.image = profilePicture
-        
         
         self.profileImageView.image = profilePicture
         self.profileImageView.contentMode = .ScaleAspectFill

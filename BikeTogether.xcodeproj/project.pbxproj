@@ -31,8 +31,10 @@
 		213CC5681CECF77F0017456A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213CC5651CECF77F0017456A /* FBSDKLoginKit.framework */; };
 		213CC5691CECF77F0017456A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213CC5661CECF77F0017456A /* FBSDKShareKit.framework */; };
 		213CC56B1CECF9050017456A /* databaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC56A1CECF9050017456A /* databaseMethods.swift */; };
+		219C2D4E1CF7686F00488ECB /* globalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219C2D4D1CF7686F00488ECB /* globalVariables.swift */; };
 		21BA7CAC1CECF6A2003E9B2A /* BikeTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7CAB1CECF6A2003E9B2A /* BikeTogetherTests.swift */; };
 		21BA7CB71CECF6A2003E9B2A /* BikeTogetherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7CB61CECF6A2003E9B2A /* BikeTogetherUITests.swift */; };
+		21D720851CF893BC00EC38DF /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D720841CF893BC00EC38DF /* FriendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,7 @@
 		213CC5651CECF77F0017456A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		213CC5661CECF77F0017456A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		213CC56A1CECF9050017456A /* databaseMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = databaseMethods.swift; sourceTree = "<group>"; };
+		219C2D4D1CF7686F00488ECB /* globalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalVariables.swift; sourceTree = "<group>"; };
 		21BA7C901CECF6A2003E9B2A /* BikeTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BA7CA71CECF6A2003E9B2A /* BikeTogetherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTogetherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BA7CAB1CECF6A2003E9B2A /* BikeTogetherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeTogetherTests.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		21BA7CB21CECF6A2003E9B2A /* BikeTogetherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTogetherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BA7CB61CECF6A2003E9B2A /* BikeTogetherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeTogetherUITests.swift; sourceTree = "<group>"; };
 		21BA7CB81CECF6A2003E9B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21D720841CF893BC00EC38DF /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 				213CC5461CECF7060017456A /* mapMethods.swift */,
 				213CC54C1CECF7060017456A /* SwiftyJSON.swift */,
 				213CC56A1CECF9050017456A /* databaseMethods.swift */,
+				219C2D4D1CF7686F00488ECB /* globalVariables.swift */,
 			);
 			name = Methods;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 		213CC5631CECF7630017456A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				21D720831CF893A900EC38DF /* Social */,
 				213CC5431CECF7060017456A /* LogInViewController.swift */,
 				213CC5451CECF7060017456A /* MainMenuViewController.swift */,
 				213CC56C1CECFF560017456A /* Ride Recording */,
@@ -231,6 +237,14 @@
 				21BA7CB81CECF6A2003E9B2A /* Info.plist */,
 			);
 			path = BikeTogetherUITests;
+			sourceTree = "<group>";
+		};
+		21D720831CF893A900EC38DF /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				21D720841CF893BC00EC38DF /* FriendViewController.swift */,
+			);
+			name = Social;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,10 +387,12 @@
 				213CC5511CECF7060017456A /* BikeTogether.xcdatamodeld in Sources */,
 				213CC55C1CECF7060017456A /* ProfileViewController.swift in Sources */,
 				213CC55F1CECF7060017456A /* SwiftyJSON.swift in Sources */,
+				21D720851CF893BC00EC38DF /* FriendViewController.swift in Sources */,
 				213CC5601CECF7060017456A /* UserRecordTableViewController.swift in Sources */,
 				213CC5561CECF7060017456A /* LogInViewController.swift in Sources */,
 				213CC55A1CECF7060017456A /* PastRecordViewController.swift in Sources */,
 				213CC55D1CECF7060017456A /* RecordViewController.swift in Sources */,
+				219C2D4E1CF7686F00488ECB /* globalVariables.swift in Sources */,
 				213CC5521CECF7060017456A /* FinishViewController.swift in Sources */,
 				213CC5581CECF7060017456A /* MainMenuViewController.swift in Sources */,
 				213CC5591CECF7060017456A /* mapMethods.swift in Sources */,

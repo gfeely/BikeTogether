@@ -107,7 +107,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         /////////////////////////////////////////////////////////////////////////////////////
         //Set text of the records
         
-        getLocationName()
+        getLocationName(locations[0], endPoint: locations[locations.count-1])
        
         timeStamp.text = startTimeStamp
     
@@ -145,12 +145,13 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
             destPoint.title = "Finishing Point"
             mapView.addAnnotation(destPoint)
         
-            for(var i = 1; i < locations.count; i += 1){
-            
+            let locationCount = locations.count
+            for i in 1...locationCount-1{
+                
                 //Draw route method needs two points to draw
                 //Continuously send two location points to be drawn by the method
-            
-                drawRoute(locations[i-1], c2: locations[i])
+                drawRoute(self, c1: locations[i-1], c2: locations[i])
+                
             }
         }else{
             normalAlert(self, title: "No Distance has been Recorded", message: "none")
@@ -159,68 +160,8 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
     
     }
     
-    func drawRoute(c1: CLLocation, c2:CLLocation){
-        
-        //Draw the route method
-        
-        let p1 = CLLocationCoordinate2D(latitude: c1.coordinate.latitude, longitude: c1.coordinate.longitude)
-        let p2 = CLLocationCoordinate2D(latitude: c2.coordinate.latitude, longitude: c2.coordinate.longitude)
-        
-        var points: [CLLocationCoordinate2D]
-        points = [p1,p2]
-        let line = MKPolyline(coordinates: &points[0], count: 2)
-        mapView.addOverlay(line)
-    }
-    
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
-        
-        //Polyline properties
-        
-        if overlay is MKPolyline {
-            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = UIColor.blueColor()
-            polylineRenderer.lineWidth = 4
-            return polylineRenderer
-        }
-        return nil
-    }
-    
-    
-    func getLocationName(){
-        let startPoint = locations[0]
-        let endPoint = locations[locations.count-1]
-        
-        let geoCoder1 = CLGeocoder()
-        geoCoder1.reverseGeocodeLocation(startPoint, completionHandler: { (placemarks, error) -> Void in
-            
-            // Place details
-            var placeMark: CLPlacemark!
-            placeMark = placemarks?[0]
-            
-            // Location name
-            if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
-                print(locationName)
-            }
-
-        })
-        
-        let geoCoder2 = CLGeocoder()
-        geoCoder2.reverseGeocodeLocation(endPoint, completionHandler: { (placemarks, error) -> Void in
-            
-            // Place details
-            var placeMark: CLPlacemark!
-            placeMark = placemarks?[0]
-            
-            // Location name
-            if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
-                print(locationName)
-            }
-            
-        })
-
-    }
-    
     ///////////////////////////////////////////////////////////////////////////////////////////////////
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -236,4 +177,14 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         return false
     }
 
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        //Polyline properties
+        
+        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+        polylineRenderer.strokeColor = UIColor.blueColor()
+        polylineRenderer.lineWidth = 4
+        return polylineRenderer
+    }
+    
 }

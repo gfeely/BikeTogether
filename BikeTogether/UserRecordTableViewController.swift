@@ -25,27 +25,50 @@ class UserRecordTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        ////////////////////////////////////////////////////////////////////////////////////
-        //Database fetch request
-        let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context:NSManagedObjectContext? = appDel.managedObjectContext
-        let freq = NSFetchRequest(entityName: "Record")
-        list = try! context?.executeFetchRequest(freq)
         
-        //If the database contains nothing, do nothing
-        if (list?.count == 0){}
-        else{
-            //Put name into array for show on table
-            for ( var i = 0; i < list!.count; i += 1) {
-                let data:NSManagedObject = list![i] as! NSManagedObject
-                let name = data.valueForKey("name") as? String
-                //If the array already contains the name, do nothing. Else add to list
-                if (recordList!.contains((data.valueForKey("name")as? String)!)){}
-                else{recordList?.append(name!)}
+        print("===========================")
+        print("UserRecordViewController")
+        
+        recordList = []
+        
+        let session = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/showrname.php/")!)
+        request.HTTPMethod = "POST"
+        let postString = "uid=\(userID)"
+        
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let dataTask = session.dataTaskWithRequest(request) {
+            (data: NSData?, response: NSURLResponse?, error: NSError?) in
+            if let error = error {
+                // Case 1: Error
+                // We got some kind of error while trying to get data from the server.
+                print("Error:\n\(error)")
+            }
+            else {
+                // Case 2: Success
+                // We got a response from the server!
+                let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print(responseString)
+                if data != nil{
+                    
+                    print("** Get rname (DBMethod)**")
+                    let json = JSON(data: data!)
+                    let count = json["rname"].count
+                    if count > 0 {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            for i in 0...count-1{
+                                self.recordList?.append(json["rname"][i].string!)
+                                self.tableView.reloadData()
+                            }
+                        })
+                    }else{
+                        print("No record")
+                    }
+                }
             }
         }
-        /////////////////////////////////////////////////////////////////////////////////////
-        
+        dataTask.resume()
         tableView.reloadData()
     }
 
@@ -118,9 +141,9 @@ class UserRecordTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "toIndividualRecord"){
             let x:NSIndexPath? = self.tableView.indexPathForSelectedRow
-            //let selectedRow = recordList![x!.row]
+            let selectedRow = recordList![x!.row]
             let IRVC: IndiRecordViewController = segue.destinationViewController as! IndiRecordViewController
-            //IRVC.name = selectedRow
+            IRVC.rname = selectedRow
         }
     }
     
