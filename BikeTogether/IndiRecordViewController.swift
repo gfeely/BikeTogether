@@ -19,6 +19,15 @@ class IndiRecordViewController: UIViewController, MKMapViewDelegate {
     var stopTime = ""
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var timeTakenLabel: UILabel!
+    @IBOutlet weak var distanceCoveredLabel: UILabel!
+    @IBOutlet weak var stopTimestamp: UILabel!
+    @IBOutlet weak var startTimeStamp: UILabel!
+    
+    @IBOutlet weak var slocLabel: UILabel!
+    @IBOutlet weak var dlocLabel: UILabel!
+    
+    @IBOutlet weak var deleteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +41,8 @@ class IndiRecordViewController: UIViewController, MKMapViewDelegate {
         
         print(rname)
         mapView.delegate = self
+        
+        deleteButton.layer.cornerRadius = 20
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/viewrecord.php/")!)
@@ -73,6 +84,11 @@ class IndiRecordViewController: UIViewController, MKMapViewDelegate {
                         print("stop time = \(self.stopTime)")
                         print("start time = \(self.startTime)")
                         
+                        self.timeTakenLabel.text = self.timeDuration
+                        self.distanceCoveredLabel.text = String(format: "%.2f" , self.distance)
+                        self.stopTimestamp.text = self.stopTime
+                        self.startTimeStamp.text = self.startTime
+                        
                         viewLocation(self.rid, handler: {
                             location, count in
                             
@@ -92,6 +108,42 @@ class IndiRecordViewController: UIViewController, MKMapViewDelegate {
                             destPoint.title = "Finishing Point"
                             self.mapView.addAnnotation(destPoint)
                             
+                            let startlocName = CLGeocoder()
+                            startlocName.reverseGeocodeLocation(location[0], completionHandler: { (placemarks, error) -> Void in
+                                
+                                // Place details
+                                var placeMark: CLPlacemark!
+                                placeMark = placemarks?[0]
+                                
+                                // Location name
+                                if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
+                                    if let city = placeMark.addressDictionary!["City"] as? NSString {
+                                        let locN = locationName as String
+                                        let citN = city as String
+                                        self.slocLabel.text = "From : \(locN), \(citN)"
+                                    }
+                                }
+                                
+                            })
+                            
+                            let destlocName = CLGeocoder()
+                            destlocName.reverseGeocodeLocation(location[location.count - 1], completionHandler: { (placemarks, error) -> Void in
+                                
+                                // Place details
+                                var placeMark: CLPlacemark!
+                                placeMark = placemarks?[0]
+                                
+                                // Location name
+                                if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
+                                    if let city = placeMark.addressDictionary!["City"] as? NSString {
+                                        let locN = locationName as String
+                                        let citN = city as String
+                                        self.dlocLabel.text = "Destination : \(locN), \(citN)"
+                                    }
+                                }
+                                
+                            })
+                            
                             for i in 1...count-1{
                                 //Draw route method needs two points to draw
                                 //Continuously send two location points to be drawn by the method
@@ -103,6 +155,8 @@ class IndiRecordViewController: UIViewController, MKMapViewDelegate {
             }
         }
         dataTask.resume()
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -110,22 +164,12 @@ class IndiRecordViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         
         //Polyline properties
         
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-        polylineRenderer.strokeColor = UIColor.blueColor()
+        polylineRenderer.strokeColor = redTone
         polylineRenderer.lineWidth = 4
         return polylineRenderer
     }

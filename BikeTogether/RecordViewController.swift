@@ -21,7 +21,8 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var distance: Double = 0
     var startTimeStamp = ""
     var stopTimeStamp = ""
-
+    var showDate = ""
+    
     //Location Manager Initiliasation
     lazy var locations = [CLLocation]()
     lazy var locationManager: CLLocationManager = {
@@ -134,6 +135,9 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             timer.invalidate()
             
             stopTimeStamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+            
+            showDate = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .NoStyle)
+
         }
         else if(state == 3){
             
@@ -175,14 +179,16 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         //////////////////////////////////////////////////////////////////////////////////
         //User Interface Decorations
         //Start Button
-        startButton.layer.cornerRadius = startButton.frame.size.width / 2
-        startButton.layer.borderWidth = 4
-        startButton.layer.borderColor = UIColor.whiteColor().CGColor
+        //startButton.layer.cornerRadius = startButton.frame.size.width / 2
+        //startButton.layer.borderWidth = 2
+        //startButton.layer.borderColor = UIColor.whiteColor().CGColor
+        startButton.layer.cornerRadius = 20
         
         //Finish Button
-        stopButton.layer.cornerRadius = startButton.frame.size.width / 2
-        stopButton.layer.borderWidth = 4
-        stopButton.layer.borderColor = UIColor.whiteColor().CGColor
+        //stopButton.layer.cornerRadius = startButton.frame.size.width / 2
+        //stopButton.layer.borderWidth = 2
+        //stopButton.layer.borderColor = UIColor.whiteColor().CGColor
+        stopButton.layer.cornerRadius = 20
         //////////////////////////////////////////////////////////////////////////////////
     }
     
@@ -221,8 +227,12 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     }
                     
                     //For changing format, metres and kilometres. (format: 000.00 m or *.00 km)
+                   
+                    let formatter = NSNumberFormatter()
+                    formatter.minimumFractionDigits = 0
+                    
                     if(distance < 1000){
-                        distanceText.text = String("\(round(distance*100)/100) m")
+                        distanceText.text = String("\(formatter.stringFromNumber(distance)!) m")
                     }else{
                         var dtn = distance/1000
                         dtn = round(dtn*100)/100
@@ -241,7 +251,6 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                         let c2 = self.locations[destinationIndex].coordinate
                         var a = [c1, c2]
                         let polyline = MKPolyline(coordinates: &a, count: a.count)
-                        //polylines.append(mapView.addOverlay(polyline))
                         mapView.addOverlay(polyline)
                     }
                 }
@@ -252,16 +261,13 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         speed = locationManager.location!.speed
     }
     
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         
         //Polyline properties
-        if overlay is MKPolyline {
-            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = UIColor.blueColor()
-            polylineRenderer.lineWidth = 4
-            return polylineRenderer
-        }
-        return nil
+        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+        polylineRenderer.strokeColor = redTone
+        polylineRenderer.lineWidth = 4
+        return polylineRenderer
     }
     
     func resetAll(){
@@ -299,6 +305,7 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             FVC.locations = locations
             FVC.startTimeStamp = startTimeStamp
             FVC.stopTimeStamp = stopTimeStamp
+            FVC.showDate = showDate
             self.resetAll()
         }
     }

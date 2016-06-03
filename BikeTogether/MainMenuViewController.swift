@@ -138,6 +138,8 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
                         self.weatherImage.image = UIImage(named: "mist")
                     case "Haze":
                         self.weatherImage.image = UIImage(named: "mist")
+                    case "Fog":
+                        self.weatherImage.image = UIImage(named: "mist")
                     case "Clouds":
                         self.weatherImage.image = UIImage(named: "cloudy")
                     default:

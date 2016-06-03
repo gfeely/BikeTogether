@@ -91,10 +91,16 @@ class UserRecordTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UserRecordTableViewCell
+
+        
+        let cellImageLayer: CALayer?  = cell.mapImage.layer
+        cellImageLayer!.cornerRadius = cell.mapImage.frame.size.width / 2
+        cellImageLayer!.masksToBounds = true
         
         //Text on cell is the name from the array
-        cell.textLabel?.text = recordList![indexPath.row]
+        cell.mapImage.contentMode = .ScaleAspectFill
+        cell.routeName.text = recordList![indexPath.row]
         return cell
     }
     
@@ -144,6 +150,7 @@ class UserRecordTableViewController: UITableViewController {
             let selectedRow = recordList![x!.row]
             let IRVC: IndiRecordViewController = segue.destinationViewController as! IndiRecordViewController
             IRVC.rname = selectedRow
+            IRVC.title = selectedRow
         }
     }
     

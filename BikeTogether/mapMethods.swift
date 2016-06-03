@@ -22,7 +22,9 @@ func drawRoute(sender: AnyObject, c1: CLLocation, c2:CLLocation){
     sender.mapView!!.addOverlay(line)
 }
 
-func getLocationName(startPoint: CLLocation, endPoint: CLLocation){
+func getStartName(startPoint: CLLocation) -> (String){
+    
+    var startP = ""
     
     let geoCoder1 = CLGeocoder()
     geoCoder1.reverseGeocodeLocation(startPoint, completionHandler: { (placemarks, error) -> Void in
@@ -33,13 +35,20 @@ func getLocationName(startPoint: CLLocation, endPoint: CLLocation){
         
         // Location name
         if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
-            print(locationName)
+            startP = locationName as String
         }
         
     })
     
-    let geoCoder2 = CLGeocoder()
-    geoCoder2.reverseGeocodeLocation(endPoint, completionHandler: { (placemarks, error) -> Void in
+    return startP
+}
+
+func getDestName(endPoint: CLLocation) -> (String){
+    
+    var locName = ""
+    
+    let geoCoder1 = CLGeocoder()
+    geoCoder1.reverseGeocodeLocation(endPoint, completionHandler: { (placemarks, error) -> Void in
         
         // Place details
         var placeMark: CLPlacemark!
@@ -47,9 +56,26 @@ func getLocationName(startPoint: CLLocation, endPoint: CLLocation){
         
         // Location name
         if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
-            print(locationName)
+            locName = locationName as String
+        }})
+    
+    return locName
+}
+
+
+func takeSnapshot(mapView: MKMapView, withCallback: (UIImage?, NSError?) -> ()) {
+    let options = MKMapSnapshotOptions()
+    options.region = mapView.region
+    options.size = mapView.frame.size
+    options.scale = UIScreen.mainScreen().scale
+    
+    let snapshotter = MKMapSnapshotter(options: options)
+    snapshotter.startWithCompletionHandler() { snapshot, error in
+        guard snapshot != nil else {
+            withCallback(nil, error)
+            return
         }
         
-    })
-    
+        withCallback(snapshot!.image, nil)
+    }
 }

@@ -83,16 +83,40 @@ class LogInViewController: UIViewController, FBSDKLoginButtonDelegate {
             {
                 //print(result)
                 
-                let resultdict = result.objectForKey("friends") as! NSDictionary
-                friendData = resultdict.objectForKey("data") as! NSArray
+                if (result.objectForKey("friends") != nil) {
+                    let resultdict = result.objectForKey("friends") as! NSDictionary
+                    friendData = resultdict.objectForKey("data") as! NSArray
+                }else{
+                    print("Cannot fetch friend")
+                }
                 
-                let id = (result.objectForKey("id") as? String)!
-                userID = Int(id)!
-                strFirstName = (result.objectForKey("first_name") as? String)!
-                strLastName = (result.objectForKey("last_name") as? String)!
-                strPictureURL = (result.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
-                profilePicture = UIImage(data: NSData(contentsOfURL: NSURL(string: strPictureURL)!)!)!
+                if (result.objectForKey("id") != nil){
+                    print(result.objectForKey("id"))
+                    let id = (result.objectForKey("id") as? String)!
+                    userID = Int64(id)!
+                }else{
+                    print("Cannot fetch ID")
+                }
                 
+                if (result.objectForKey("first_name") != nil) {
+                    strFirstName = (result.objectForKey("first_name") as? String)!
+                }else{
+                    print("Cannot fetch first_name")
+                }
+            
+                
+                if (result.objectForKey("last_name") != nil){
+                    strLastName = (result.objectForKey("last_name") as? String)!
+                }else{
+                    print("Cannot fetch last_name")
+                }
+                
+                if (result.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") != nil){
+                    strPictureURL = (result.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
+                    profilePicture = UIImage(data: NSData(contentsOfURL: NSURL(string: strPictureURL)!)!)!
+                }else{
+                    print("Cannot fetch profile picture")
+                }
                 
                 print("This is my ID \(userID)")
                 print("This is my name \(strFirstName)")

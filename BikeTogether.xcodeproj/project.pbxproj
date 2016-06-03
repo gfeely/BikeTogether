@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		211503F81CEF461900CC65F9 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211503F71CEF461900CC65F9 /* UserProfileViewController.swift */; };
+		2116D3981D00A78700D40E9C /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116D3971D00A78700D40E9C /* FriendTableViewCell.swift */; };
+		2116D39A1D00C49F00D40E9C /* UserRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116D3991D00C49F00D40E9C /* UserRecordTableViewCell.swift */; };
 		213CC54E1CECF7060017456A /* alertMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5391CECF7060017456A /* alertMethods.swift */; };
 		213CC54F1CECF7060017456A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC53A1CECF7060017456A /* AppDelegate.swift */; };
 		213CC5501CECF7060017456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 213CC53B1CECF7060017456A /* Assets.xcassets */; };
@@ -20,9 +22,7 @@
 		213CC5571CECF7060017456A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213CC5441CECF7060017456A /* Main.storyboard */; };
 		213CC5581CECF7060017456A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5451CECF7060017456A /* MainMenuViewController.swift */; };
 		213CC5591CECF7060017456A /* mapMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5461CECF7060017456A /* mapMethods.swift */; };
-		213CC55A1CECF7060017456A /* PastRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5471CECF7060017456A /* PastRecordViewController.swift */; };
 		213CC55B1CECF7060017456A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213CC5481CECF7060017456A /* Profile.storyboard */; };
-		213CC55C1CECF7060017456A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5491CECF7060017456A /* ProfileViewController.swift */; };
 		213CC55D1CECF7060017456A /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC54A1CECF7060017456A /* RecordViewController.swift */; };
 		213CC55E1CECF7060017456A /* Social.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213CC54B1CECF7060017456A /* Social.storyboard */; };
 		213CC55F1CECF7060017456A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC54C1CECF7060017456A /* SwiftyJSON.swift */; };
@@ -56,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		211503F71CEF461900CC65F9 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		2116D3971D00A78700D40E9C /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		2116D3991D00C49F00D40E9C /* UserRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecordTableViewCell.swift; sourceTree = "<group>"; };
 		213CC5391CECF7060017456A /* alertMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alertMethods.swift; sourceTree = "<group>"; };
 		213CC53A1CECF7060017456A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		213CC53B1CECF7060017456A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,9 +71,7 @@
 		213CC5441CECF7060017456A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		213CC5451CECF7060017456A /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		213CC5461CECF7060017456A /* mapMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMethods.swift; sourceTree = "<group>"; };
-		213CC5471CECF7060017456A /* PastRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRecordViewController.swift; sourceTree = "<group>"; };
 		213CC5481CECF7060017456A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		213CC5491CECF7060017456A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		213CC54A1CECF7060017456A /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		213CC54B1CECF7060017456A /* Social.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Social.storyboard; sourceTree = "<group>"; };
 		213CC54C1CECF7060017456A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -159,12 +159,11 @@
 		213CC5631CECF7630017456A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				21D720831CF893A900EC38DF /* Social */,
 				213CC5431CECF7060017456A /* LogInViewController.swift */,
 				213CC5451CECF7060017456A /* MainMenuViewController.swift */,
+				21D720831CF893A900EC38DF /* Social */,
 				213CC56C1CECFF560017456A /* Ride Recording */,
-				213CC56D1CECFFCC0017456A /* Profile Page */,
-				213CC56E1CECFFF80017456A /* New profile */,
+				213CC56E1CECFFF80017456A /* Profile */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -178,23 +177,15 @@
 			name = "Ride Recording";
 			sourceTree = "<group>";
 		};
-		213CC56D1CECFFCC0017456A /* Profile Page */ = {
-			isa = PBXGroup;
-			children = (
-				213CC5471CECF7060017456A /* PastRecordViewController.swift */,
-				213CC5491CECF7060017456A /* ProfileViewController.swift */,
-			);
-			name = "Profile Page";
-			sourceTree = "<group>";
-		};
-		213CC56E1CECFFF80017456A /* New profile */ = {
+		213CC56E1CECFFF80017456A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				213CC5401CECF7060017456A /* IndiRecordViewController.swift */,
 				213CC54D1CECF7060017456A /* UserRecordTableViewController.swift */,
 				211503F71CEF461900CC65F9 /* UserProfileViewController.swift */,
+				2116D3991D00C49F00D40E9C /* UserRecordTableViewCell.swift */,
 			);
-			name = "New profile";
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		21BA7C871CECF6A2003E9B2A = {
@@ -243,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				21D720841CF893BC00EC38DF /* FriendViewController.swift */,
+				2116D3971D00A78700D40E9C /* FriendTableViewCell.swift */,
 			);
 			name = Social;
 			sourceTree = "<group>";
@@ -385,19 +377,19 @@
 				211503F81CEF461900CC65F9 /* UserProfileViewController.swift in Sources */,
 				213CC56B1CECF9050017456A /* databaseMethods.swift in Sources */,
 				213CC5511CECF7060017456A /* BikeTogether.xcdatamodeld in Sources */,
-				213CC55C1CECF7060017456A /* ProfileViewController.swift in Sources */,
 				213CC55F1CECF7060017456A /* SwiftyJSON.swift in Sources */,
 				21D720851CF893BC00EC38DF /* FriendViewController.swift in Sources */,
 				213CC5601CECF7060017456A /* UserRecordTableViewController.swift in Sources */,
 				213CC5561CECF7060017456A /* LogInViewController.swift in Sources */,
-				213CC55A1CECF7060017456A /* PastRecordViewController.swift in Sources */,
 				213CC55D1CECF7060017456A /* RecordViewController.swift in Sources */,
 				219C2D4E1CF7686F00488ECB /* globalVariables.swift in Sources */,
+				2116D39A1D00C49F00D40E9C /* UserRecordTableViewCell.swift in Sources */,
 				213CC5521CECF7060017456A /* FinishViewController.swift in Sources */,
 				213CC5581CECF7060017456A /* MainMenuViewController.swift in Sources */,
 				213CC5591CECF7060017456A /* mapMethods.swift in Sources */,
 				213CC54F1CECF7060017456A /* AppDelegate.swift in Sources */,
 				213CC54E1CECF7060017456A /* alertMethods.swift in Sources */,
+				2116D3981D00A78700D40E9C /* FriendTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

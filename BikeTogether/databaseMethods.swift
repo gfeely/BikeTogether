@@ -11,7 +11,7 @@ import MapKit
 
 //////////////////////////////////////////////////////////////////////////////////
 
-func signIn(uid: Int, name: String){
+func signIn(uid: Int64, name: String){
     
     // Send UID and user name to database
     // Use in: LoginViewController
@@ -98,7 +98,7 @@ func repeatRname (rname: String, completionHandler: (result: Int) -> ()) {
 
 //////////////////////////////////////////////////////////////////////////////////
 
-func recordNewRide (uid: Int, rname: String, timeduration: String, distance: Double, starttimestamp: String, stoptimestamp: String, completionHandler: (result: Int) -> ()){
+func recordNewRide (uid: Int64, rname: String, timeduration: String, distance: Double, starttimestamp: String, stoptimestamp: String, completionHandler: (result: Int) -> ()){
 
     // Update new recorded ride into ride_record table
     // Use in: FinishViewController
@@ -119,6 +119,7 @@ func recordNewRide (uid: Int, rname: String, timeduration: String, distance: Dou
             // Case 1: Error
             // We got some kind of error while trying to get data from the server.
             print("Error:\n\(error)")
+            completionHandler(result: 0)
         }
         else {
             // Case 2: Success
@@ -138,7 +139,7 @@ func recordNewRide (uid: Int, rname: String, timeduration: String, distance: Dou
 
 //////////////////////////////////////////////////////////////////////////////////
 
-func recordRideLocation (rid: Int, uid: Int, latitude: Double, longitude: Double, mapKey: Int){
+func recordRideLocation (rid: Int, uid: Int64, latitude: Double, longitude: Double, mapKey: Int){
     
     // Update new recorded ride into ride_record table
     // Use in: FinishViewController

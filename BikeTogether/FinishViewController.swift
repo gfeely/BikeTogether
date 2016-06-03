@@ -18,7 +18,11 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
     var timeTaken: String = ""
     var startTimeStamp = ""
     var stopTimeStamp = ""
+    var showDate = ""
+    var startLoc = ""
+    var destLoc = ""
     
+    @IBOutlet weak var infoView: UIView!
     
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
@@ -28,6 +32,9 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var timeTakenLabel: UILabel!
     @IBOutlet weak var timeStamp: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var locName: UILabel!
+    @IBOutlet weak var cityName: UILabel!
     
     @IBAction func unwindToMain(sender: AnyObject) {
         backToMainMenuOnYes(self)
@@ -58,6 +65,10 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
                                 recordRideLocation(rid, uid: userID, latitude: i.coordinate.latitude, longitude: i.coordinate.longitude, mapKey: count)
                                 count += 1
                             }
+                            normalAlert(self, title: "Success", message: "Your record has been saved.")
+                        }
+                        else{
+                            normalAlert(self, title: "An Error Has Occured", message: "There is an error saving to the online database.")
                         }
                     })
                 }
@@ -74,30 +85,37 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         //////////////////////////////////////////////////////////////////////////////////
         //User Interface Decorations
         //Save Button
-        saveButton.layer.cornerRadius = saveButton.frame.size.width / 2
+        saveButton.layer.cornerRadius = 20
         saveButton.layer.borderWidth = 1
         saveButton.layer.borderColor = UIColor.whiteColor().CGColor
         
         //Finish Button
-        dismissButton.layer.cornerRadius = dismissButton.frame.size.width / 2
+        dismissButton.layer.cornerRadius = 20
         dismissButton.layer.borderWidth = 1
         dismissButton.layer.borderColor = UIColor.whiteColor().CGColor
         //////////////////////////////////////////////////////////////////////////////////
 
         
         ////////////////////////////////////////////////////////////////////////////////
-        /*//Facebook share
+    //Facebook share
         
         let content : FBSDKShareLinkContent = FBSDKShareLinkContent()
-        //content.contentURL = NSURL(string: "https://www.facebook.com/FacebookDevelopers")!
-        content.contentTitle = "My Facebook"
-        content.contentDescription = "This is testing"
-        //content.imageURL = NSURL(string: "https://scontent.fbkk5-5.fna.fbcdn.net/t31.0-8/13072756_1176190255734238_9079577487712337304_o.jpg")
+        content.contentURL = NSURL(string: "http://www.facebook.com/")
+        content.contentTitle = "Come Bike Together!"
         
-        let shareButton: FBSDKShareButton = FBSDKShareButton()
-        shareButton.shareContent = content
-        shareButton.center = self.view.center
-        self.view!.addSubview(shareButton)*/
+        if(distance < 1000){
+            content.contentDescription = "I just cycled \(round(distance)) m with Bike Together. My time is \(timeTaken). Come join me!"
+        }else{
+            content.contentDescription = "I just cycled \(round(distance/1000)) km with Bike Together. My time is \(timeTaken). Come join me!"
+        }
+        
+        content.imageURL = NSURL(string: "https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/13315649_1199178556768741_202862369797131353_n.jpg?oh=8da6927d9e4e9d852c3232bc96d4e7e3&oe=57DB022F")
+        
+        let button : FBSDKShareButton = FBSDKShareButton()
+        button.shareContent = content
+        button.frame =  CGRectMake(self.infoView.bounds.origin.x, self.infoView.bounds.origin.y, self.infoView.frame.size.width, self.infoView.frame.size.height)
+        self.infoView.layer.cornerRadius = 10
+        self.infoView.addSubview(button)
         ////////////////////////////////////////////////////////////////////////////////
     }
     
@@ -107,9 +125,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         /////////////////////////////////////////////////////////////////////////////////////
         //Set text of the records
         
-        getLocationName(locations[0], endPoint: locations[locations.count-1])
-       
-        timeStamp.text = startTimeStamp
+        timeStamp.text = showDate
     
         if(distance < 1000){
             totalDistLabel.text = String("\(round(distance*100)/100) m")
@@ -157,7 +173,25 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
             normalAlert(self, title: "No Distance has been Recorded", message: "none")
         }
         /////////////////////////////////////////////////////////////////////////////////////
-    
+        
+        let startlocName = CLGeocoder()
+        startlocName.reverseGeocodeLocation(locations[0], completionHandler: { (placemarks, error) -> Void in
+            
+            // Place details
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            
+            // Location name
+            if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
+                self.locName.text = locationName as String
+            }
+            
+            // City
+            if let city = placeMark.addressDictionary!["City"] as? NSString {
+                self.cityName.text = city as String
+            }
+            
+        })
     }
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -182,7 +216,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         //Polyline properties
         
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-        polylineRenderer.strokeColor = UIColor.blueColor()
+        polylineRenderer.strokeColor = redTone
         polylineRenderer.lineWidth = 4
         return polylineRenderer
     }

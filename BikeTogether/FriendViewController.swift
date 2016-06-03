@@ -18,7 +18,7 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         // Do any additional setup after loading the view.
     }
     
@@ -30,10 +30,17 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
         friendNameList = []
         friendIDList = []
         
+        var name: String = ""
+        
         for i in 0...friendData.count-1 {
             let valueDict : NSDictionary = friendData[i] as! NSDictionary
             let id = valueDict.objectForKey("id") as! String
-            let name = valueDict.objectForKey("name") as! String
+            print(valueDict.objectForKey("name"))
+            
+            if (valueDict.objectForKey("name") != nil){
+               name = valueDict.objectForKey("name")! as! String
+            }
+            
             friendIDList.append(Int(id)!)
             friendNameList.append(name)
         }
@@ -58,16 +65,21 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
         let facebookProfileUrl = "http://graph.facebook.com/\(friendIDList[indexPath.row])/picture?type=large"
         let friendImage = UIImage(data: NSData(contentsOfURL: NSURL(string: facebookProfileUrl)!)!)!
+        let name = friendNameList[indexPath.row]
         
-        //Text on cell is the name from the array
-        cell.textLabel?.text = friendNameList[indexPath.row]
-        cell.imageView?.image = friendImage
+        let Cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! FriendTableViewCell
+
+        let cellImageLayer: CALayer?  = Cell.frdPic.layer
+        cellImageLayer!.cornerRadius = Cell.frdPic.frame.size.width / 2
+        cellImageLayer!.masksToBounds = true
         
-        return cell
+        Cell.frdPic.image = friendImage
+        Cell.frdPic.contentMode = .ScaleAspectFill
+        Cell.frdName.text = name
+        return Cell
     }
     
     
