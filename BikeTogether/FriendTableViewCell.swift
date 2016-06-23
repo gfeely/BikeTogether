@@ -13,10 +13,11 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var frdPic: UIImageView!
     @IBOutlet weak var frdName: UILabel!
     @IBOutlet weak var distanceCovered: UILabel!
+    @IBOutlet weak var rankPosition: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code        
+        // Initialization code
         
     }
 

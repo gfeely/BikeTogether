@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211324C11D19C9C700693403 /* NearbyFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211324C01D19C9C700693403 /* NearbyFriendsTableViewCell.swift */; };
+		211324C71D19DC0100693403 /* NearbyFriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211324C61D19DC0100693403 /* NearbyFriendsListViewController.swift */; };
 		211503F81CEF461900CC65F9 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211503F71CEF461900CC65F9 /* UserProfileViewController.swift */; };
 		2116D3981D00A78700D40E9C /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116D3971D00A78700D40E9C /* FriendTableViewCell.swift */; };
 		2116D39A1D00C49F00D40E9C /* UserRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116D3991D00C49F00D40E9C /* UserRecordTableViewCell.swift */; };
@@ -31,9 +33,15 @@
 		213CC5681CECF77F0017456A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213CC5651CECF77F0017456A /* FBSDKLoginKit.framework */; };
 		213CC5691CECF77F0017456A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213CC5661CECF77F0017456A /* FBSDKShareKit.framework */; };
 		213CC56B1CECF9050017456A /* databaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC56A1CECF9050017456A /* databaseMethods.swift */; };
+		214854E21D05E0B3000E9610 /* infoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214854E11D05E0B3000E9610 /* infoTableViewCell.swift */; };
+		214854E41D05E284000E9610 /* FirstAidTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214854E31D05E284000E9610 /* FirstAidTableViewController.swift */; };
+		214854E61D05FF1A000E9610 /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214854E51D05FF1A000E9610 /* detailsViewController.swift */; };
+		217FD1031D183571000D5CEB /* searchCyclist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217FD1021D183571000D5CEB /* searchCyclist.storyboard */; };
+		217FD1061D18384F000D5CEB /* SearchNearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FD1051D18384F000D5CEB /* SearchNearbyViewController.swift */; };
 		219C2D4E1CF7686F00488ECB /* globalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219C2D4D1CF7686F00488ECB /* globalVariables.swift */; };
 		21BA7CAC1CECF6A2003E9B2A /* BikeTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7CAB1CECF6A2003E9B2A /* BikeTogetherTests.swift */; };
 		21BA7CB71CECF6A2003E9B2A /* BikeTogetherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7CB61CECF6A2003E9B2A /* BikeTogetherUITests.swift */; };
+		21C3FDB21D1B138600D57506 /* PlanRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3FDB11D1B138600D57506 /* PlanRouteViewController.swift */; };
 		21D720851CF893BC00EC38DF /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D720841CF893BC00EC38DF /* FriendViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211324C01D19C9C700693403 /* NearbyFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		211324C61D19DC0100693403 /* NearbyFriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyFriendsListViewController.swift; sourceTree = "<group>"; };
 		211503F71CEF461900CC65F9 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		2116D3971D00A78700D40E9C /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		2116D3991D00C49F00D40E9C /* UserRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecordTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,6 +90,11 @@
 		213CC5651CECF77F0017456A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		213CC5661CECF77F0017456A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		213CC56A1CECF9050017456A /* databaseMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = databaseMethods.swift; sourceTree = "<group>"; };
+		214854E11D05E0B3000E9610 /* infoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoTableViewCell.swift; sourceTree = "<group>"; };
+		214854E31D05E284000E9610 /* FirstAidTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstAidTableViewController.swift; sourceTree = "<group>"; };
+		214854E51D05FF1A000E9610 /* detailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
+		217FD1021D183571000D5CEB /* searchCyclist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = searchCyclist.storyboard; sourceTree = "<group>"; };
+		217FD1051D18384F000D5CEB /* SearchNearbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNearbyViewController.swift; sourceTree = "<group>"; };
 		219C2D4D1CF7686F00488ECB /* globalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalVariables.swift; sourceTree = "<group>"; };
 		21BA7C901CECF6A2003E9B2A /* BikeTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BA7CA71CECF6A2003E9B2A /* BikeTogetherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTogetherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +103,7 @@
 		21BA7CB21CECF6A2003E9B2A /* BikeTogetherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTogetherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BA7CB61CECF6A2003E9B2A /* BikeTogetherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeTogetherUITests.swift; sourceTree = "<group>"; };
 		21BA7CB81CECF6A2003E9B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21C3FDB11D1B138600D57506 /* PlanRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanRouteViewController.swift; sourceTree = "<group>"; };
 		21D720841CF893BC00EC38DF /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +156,7 @@
 				213CC5441CECF7060017456A /* Main.storyboard */,
 				213CC5481CECF7060017456A /* Profile.storyboard */,
 				213CC54B1CECF7060017456A /* Social.storyboard */,
+				217FD1021D183571000D5CEB /* searchCyclist.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -161,6 +178,8 @@
 			children = (
 				213CC5431CECF7060017456A /* LogInViewController.swift */,
 				213CC5451CECF7060017456A /* MainMenuViewController.swift */,
+				217FD1041D18378F000D5CEB /* Search Nearby */,
+				214854E01D05E08B000E9610 /* First Aid Information */,
 				21D720831CF893A900EC38DF /* Social */,
 				213CC56C1CECFF560017456A /* Ride Recording */,
 				213CC56E1CECFFF80017456A /* Profile */,
@@ -186,6 +205,27 @@
 				2116D3991D00C49F00D40E9C /* UserRecordTableViewCell.swift */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		214854E01D05E08B000E9610 /* First Aid Information */ = {
+			isa = PBXGroup;
+			children = (
+				214854E11D05E0B3000E9610 /* infoTableViewCell.swift */,
+				214854E31D05E284000E9610 /* FirstAidTableViewController.swift */,
+				214854E51D05FF1A000E9610 /* detailsViewController.swift */,
+			);
+			name = "First Aid Information";
+			sourceTree = "<group>";
+		};
+		217FD1041D18378F000D5CEB /* Search Nearby */ = {
+			isa = PBXGroup;
+			children = (
+				217FD1051D18384F000D5CEB /* SearchNearbyViewController.swift */,
+				211324C61D19DC0100693403 /* NearbyFriendsListViewController.swift */,
+				21C3FDB11D1B138600D57506 /* PlanRouteViewController.swift */,
+				211324C01D19C9C700693403 /* NearbyFriendsTableViewCell.swift */,
+			);
+			name = "Search Nearby";
 			sourceTree = "<group>";
 		};
 		21BA7C871CECF6A2003E9B2A = {
@@ -345,6 +385,7 @@
 			files = (
 				213CC5551CECF7060017456A /* LaunchScreen.storyboard in Resources */,
 				213CC5541CECF7060017456A /* Info.plist in Resources */,
+				217FD1031D183571000D5CEB /* searchCyclist.storyboard in Resources */,
 				213CC55B1CECF7060017456A /* Profile.storyboard in Resources */,
 				213CC5501CECF7060017456A /* Assets.xcassets in Resources */,
 				213CC5571CECF7060017456A /* Main.storyboard in Resources */,
@@ -378,18 +419,25 @@
 				213CC56B1CECF9050017456A /* databaseMethods.swift in Sources */,
 				213CC5511CECF7060017456A /* BikeTogether.xcdatamodeld in Sources */,
 				213CC55F1CECF7060017456A /* SwiftyJSON.swift in Sources */,
+				214854E21D05E0B3000E9610 /* infoTableViewCell.swift in Sources */,
+				211324C11D19C9C700693403 /* NearbyFriendsTableViewCell.swift in Sources */,
 				21D720851CF893BC00EC38DF /* FriendViewController.swift in Sources */,
 				213CC5601CECF7060017456A /* UserRecordTableViewController.swift in Sources */,
 				213CC5561CECF7060017456A /* LogInViewController.swift in Sources */,
 				213CC55D1CECF7060017456A /* RecordViewController.swift in Sources */,
+				211324C71D19DC0100693403 /* NearbyFriendsListViewController.swift in Sources */,
 				219C2D4E1CF7686F00488ECB /* globalVariables.swift in Sources */,
 				2116D39A1D00C49F00D40E9C /* UserRecordTableViewCell.swift in Sources */,
 				213CC5521CECF7060017456A /* FinishViewController.swift in Sources */,
 				213CC5581CECF7060017456A /* MainMenuViewController.swift in Sources */,
+				214854E41D05E284000E9610 /* FirstAidTableViewController.swift in Sources */,
+				21C3FDB21D1B138600D57506 /* PlanRouteViewController.swift in Sources */,
+				214854E61D05FF1A000E9610 /* detailsViewController.swift in Sources */,
 				213CC5591CECF7060017456A /* mapMethods.swift in Sources */,
 				213CC54F1CECF7060017456A /* AppDelegate.swift in Sources */,
 				213CC54E1CECF7060017456A /* alertMethods.swift in Sources */,
 				2116D3981D00A78700D40E9C /* FriendTableViewCell.swift in Sources */,
+				217FD1061D18384F000D5CEB /* SearchNearbyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -122,8 +122,10 @@ class LogInViewController: UIViewController, FBSDKLoginButtonDelegate {
                 print("This is my name \(strFirstName)")
                 
                 signIn(userID, name: strFirstName)
+                getZone()
                 
                 self.performSegueWithIdentifier("goToMain", sender: self)
+                
             }
         })
     }

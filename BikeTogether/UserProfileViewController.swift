@@ -12,6 +12,7 @@ class UserProfileViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var totDistanceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,26 @@ class UserProfileViewController: UIViewController {
         
         
         // Do any additional setup after loading the view.
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        //func totalDistance(uid: Int64, handler: (totalDistance: Double) -> () ){
+        
+        totalDistance(userID, handler: {
+            (distance) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+
+            if(distance < 1000){
+                let dtn = round(distance)
+                self.totDistanceLabel.text = String("\(dtn) m")
+            }else{
+                var dtn = distance/1000
+                dtn = round(dtn*100)/100
+                self.totDistanceLabel.text = String("\(dtn) km")
+            }
+
+        })
+        })
     }
 
     override func didReceiveMemoryWarning() {

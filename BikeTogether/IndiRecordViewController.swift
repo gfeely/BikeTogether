@@ -32,6 +32,8 @@ class IndiRecordViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        deleteButton.layer.cornerRadius = 20
+
         // Do any additional setup after loading the view.
     }
     
@@ -41,8 +43,6 @@ class IndiRecordViewController: UIViewController, MKMapViewDelegate {
         
         print(rname)
         mapView.delegate = self
-        
-        deleteButton.layer.cornerRadius = 20
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/viewrecord.php/")!)

@@ -10,7 +10,7 @@ import UIKit
 
 class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var friendIDList: Array<Int> = []
+    var friendIDList: Array<String> = []
     var friendNameList: Array<String> = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -18,7 +18,7 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         // Do any additional setup after loading the view.
     }
     
@@ -31,22 +31,21 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
         friendIDList = []
         
         var name: String = ""
-        
+    
         for i in 0...friendData.count-1 {
             let valueDict : NSDictionary = friendData[i] as! NSDictionary
             let id = valueDict.objectForKey("id") as! String
+            print(id)
             print(valueDict.objectForKey("name"))
             
             if (valueDict.objectForKey("name") != nil){
-               name = valueDict.objectForKey("name")! as! String
+                name = valueDict.objectForKey("name")! as! String
+                friendNameList.append(name)
             }
             
-            friendIDList.append(Int(id)!)
-            friendNameList.append(name)
+           friendIDList.append(id)
         }
-        
-        print(friendIDList)
-        
+                
         tableView.reloadData()
     }
 
@@ -79,7 +78,25 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
         Cell.frdPic.image = friendImage
         Cell.frdPic.contentMode = .ScaleAspectFill
         Cell.frdName.text = name
+        
+        totalDistance(Int64(friendIDList[indexPath.row])!, handler: {
+            (distance) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                if(distance < 1000){
+                    let dtn = round(distance)
+                    Cell.distanceCovered.text = String("\(dtn) m")
+                }else{
+                    var dtn = distance/1000
+                    dtn = round(dtn*100)/100
+                    Cell.distanceCovered.text = String("\(dtn) km")
+                }
+                
+            })
+        })
+        
         return Cell
+        
     }
     
     

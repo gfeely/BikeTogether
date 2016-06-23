@@ -17,8 +17,6 @@ func signIn(uid: Int64, name: String){
     // Use in: LoginViewController
     // file: signin.php
     
-    print("** Sign-in (DBMETHOD) **")
-    
     let session = NSURLSession.sharedSession()
     let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/signin.php/")!)
     request.HTTPMethod = "POST"
@@ -40,14 +38,54 @@ func signIn(uid: Int64, name: String){
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             switch responseString!
             {
-                case " 0": print("Response 0: Unknown error")
-                case " 1": print("Response 1: New user")
-                case " 2": print("Response 2: Existing user")
+                case " 0": print("** Sign-in (Response 0: Unknown error)")
+                case " 1":
+                    print("** Sign-in (Response 1: New user)")
+                    createCurLoc(uid, lat: 0, long: 0)
+                case " 2":
+                    print("** Sign-in (Response 2: Existing user)")
                 default: print("Response is either 0-3")
             }
         }
     }
     dataTask.resume()
+}
+
+func getZone () {
+    
+    // Get user zone
+    // Use in: SignInViewController
+    // file: getzone.php
+    
+    print("** Get Zone (DBMETHOD) **")
+    
+    let session = NSURLSession.sharedSession()
+    let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/getzone.php/")!)
+    request.HTTPMethod = "POST"
+    let postString = "uid=\(userID)"
+    
+    request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+    
+    let dataTask = session.dataTaskWithRequest(request) {
+        (data: NSData?, response: NSURLResponse?, error: NSError?) in
+        
+        if let error = error {
+            // Case 1: Error
+            // We got some kind of error while trying to get data from the server.
+            print("Error:\n\(error)")
+        }
+        else {
+            // Case 2: Success
+            // We got a response from the server!
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            let trimmedString = responseString!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            userZone = trimmedString
+
+        }
+    }
+    dataTask.resume()
+    
 }
 
 func repeatRname (rname: String, completionHandler: (result: Int) -> ()) {
@@ -226,6 +264,137 @@ func viewLocation(rid: Int, handler: (locations: Array<CLLocation>, c: Int) -> (
     dataTask.resume()
 
 }
+
+func totalDistance(uid: Int64, handler: (totalDistance: Double) -> () ){
+    
+    let session = NSURLSession.sharedSession()
+    let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/totaldistance.php/")!)
+    request.HTTPMethod = "POST"
+    let postString = "uid=\(uid)"
+    
+    request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+    
+    let dataTask = session.dataTaskWithRequest(request) {
+        (data: NSData?, response: NSURLResponse?, error: NSError?) in
+        if let error = error {
+            // Case 1: Error
+            // We got some kind of error while trying to get data from the server.
+            print("Error:\n\(error)")
+        }
+        else {
+            // Case 2: Success
+            // We got a response from the server!
+            print("** Total Distance (DBMETHOD)**")
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            let trimmedString = responseString!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            let distance = Double(trimmedString)!
+            handler(totalDistance: distance)
+        }
+    }
+    dataTask.resume()
+}
+
+func updateCurLoc(uid: Int64, lat: Double, long: Double){
+    
+    let session = NSURLSession.sharedSession()
+    let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/updatelocation.php/")!)
+    request.HTTPMethod = "POST"
+    let postString = "uid=\(uid)&currentlatitude=\(lat)&currentlongitude=\(long)"
+    
+    request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+    
+    let dataTask = session.dataTaskWithRequest(request) {
+        (data: NSData?, response: NSURLResponse?, error: NSError?) in
+        if let error = error {
+            // Case 1: Error
+            // We got some kind of error while trying to get data from the server.
+            print("Error:\n\(error)")
+        }
+        else {
+            // Case 2: Success
+            // We got a response from the server!
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            switch responseString!
+            {
+            case " 0":
+                print("** Update Current location (Response 0: Unknown error) **")
+            case " 1":
+                print("** Update Current location (Response 1: Success) **")
+            default:
+                print("** Create db current location (Response is either 0-3) **")
+            }
+        }
+    }
+    dataTask.resume()
+}
+
+func createCurLoc(uid: Int64, lat: Double, long: Double){
+    
+    let session = NSURLSession.sharedSession()
+    let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/currentlocation.php/")!)
+    request.HTTPMethod = "POST"
+    let postString = "uid=\(uid)&latitude=\(lat)&longitude=\(long)&zone=A"
+    
+    request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+    
+    let dataTask = session.dataTaskWithRequest(request) {
+        (data: NSData?, response: NSURLResponse?, error: NSError?) in
+        if let error = error {
+            // Case 1: Error
+            // We got some kind of error while trying to get data from the server.
+            print("Error:\n\(error)")
+        }
+        else {
+            // Case 2: Success
+            // We got a response from the server!
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            switch responseString!
+            {
+            case " 0":
+                print("** Create db current location (Response 0: Unknown error) **")
+            case " 1":
+                print("** Create db current location (Response 1: Success) **")
+            default:
+                print("** Create db current location (Response is either 0-3) **")
+            }
+            
+        }
+    }
+    dataTask.resume()
+}
+
+
+func getName(uid: Int64, handler: (name: String) -> () ){
+    
+    let session = NSURLSession.sharedSession()
+    let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/getname.php/")!)
+    request.HTTPMethod = "POST"
+    let postString = "uid=\(uid)"
+    
+    request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+    
+    let dataTask = session.dataTaskWithRequest(request) {
+        (data: NSData?, response: NSURLResponse?, error: NSError?) in
+        if let error = error {
+            // Case 1: Error
+            // We got some kind of error while trying to get data from the server.
+            print("Error:\n\(error)")
+        }
+        else {
+            // Case 2: Success
+            // We got a response from the server!
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            let trimmedString = responseString!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            handler(name: trimmedString)
+            
+        }
+    }
+    dataTask.resume()
+}
+
+
 
 ///
 

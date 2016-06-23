@@ -60,12 +60,16 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
                     recordNewRide(userID, rname: self.nameTextField.text!, timeduration: self.timeTaken, distance: self.distance, starttimestamp: self.startTimeStamp, stoptimestamp: self.stopTimeStamp,completionHandler:{ rid in
                         
                         if rid != 0{
+                            
                             var count = 1
-                            for i in self.locations{
-                                recordRideLocation(rid, uid: userID, latitude: i.coordinate.latitude, longitude: i.coordinate.longitude, mapKey: count)
-                                count += 1
-                            }
-                            normalAlert(self, title: "Success", message: "Your record has been saved.")
+                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                for i in self.locations{
+                                    recordRideLocation(rid, uid: userID, latitude: i.coordinate.latitude, longitude: i.coordinate.longitude, mapKey: count)
+                                    count += 1
+                                }
+                                dismissViewMethod(self, title: "Success", message: "Your record has been saved.", OnYes: false)
+                            })
                         }
                         else{
                             normalAlert(self, title: "An Error Has Occured", message: "There is an error saving to the online database.")
@@ -106,7 +110,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         if(distance < 1000){
             content.contentDescription = "I just cycled \(round(distance)) m with Bike Together. My time is \(timeTaken). Come join me!"
         }else{
-            content.contentDescription = "I just cycled \(round(distance/1000)) km with Bike Together. My time is \(timeTaken). Come join me!"
+            content.contentDescription = "I just cycled \(round(distance/1000)) km with Bike Together. My time is \(timeTaken). Come beat me!"
         }
         
         content.imageURL = NSURL(string: "https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/13315649_1199178556768741_202862369797131353_n.jpg?oh=8da6927d9e4e9d852c3232bc96d4e7e3&oe=57DB022F")

@@ -12,6 +12,7 @@ import CoreLocation
 class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    let locWeather = CLLocationManager()
     
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
@@ -47,7 +48,7 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+                
         print("===========================")
         print("MainMenuViewController")
         
@@ -55,8 +56,16 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+            locationManager.startMonitoringSignificantLocationChanges()
+            //locationManager.startUpdatingLocation()
+            
+            locWeather.delegate = self
+            locWeather.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locWeather.requestLocation()
+            
         }
+        
+
         
     }
     
@@ -69,29 +78,36 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
         self.presentViewController(alertBox, animated: true, completion: nil)
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if(manager == locWeather){
+            if let location = locations.first {
+                //Use current location for updateWeather
+                let latitudeVal = String(round(location.coordinate.latitude*100)/100)
+                let longitudeVal = String(round(location.coordinate.longitude*100)/100)
+                updateWeather(latitudeVal, long: longitudeVal)
+                print("Current Position \(location.coordinate.latitude) + \(location.coordinate.longitude)")
+            }}
         
-        //Able to get location, do:
-        let currentLocation: CLLocation = newLocation
-        
-        //Use current location for updateWeather
-        let latitudeVal = String(round(currentLocation.coordinate.latitude*100)/100)
-        let longitudeVal = String(round(currentLocation.coordinate.longitude*100)/100)
-        locationManager.stopUpdatingLocation()
-        updateWeather(latitudeVal, long: longitudeVal)
+        if(manager == locationManager){
+            let currentLocation: CLLocation = locations.first!
+            
+            currentLoc = currentLocation
+            updateCurLoc(userID, lat: currentLocation.coordinate.latitude, long: currentLocation.coordinate.longitude)
+
+        }
     }
     
     func updateWeather(lat: String, long:String){
         
         //Update weather function. Receives the latitude and longitude of the device current location and put it into the openweathermap web service to get the current weather information.
-        
-        var currentTemp:Double = 0
-        
+                
         //HTTP Request
         let path1 = "http://api.openweathermap.org/data/2.5/weather?lat="
         let path2 = "&lon="
         let apiKey = "&APPID=d2339a59857b86d84ddf37c13c0e4bb2"
         let url = NSURL(string: path1+lat+path2+long+apiKey)
+        
+        print(String(url))
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             
@@ -109,14 +125,14 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
                 let cityName = json["name"].string
                 let temp = json["main"]["temp"].double
                 let desc = json["weather"][0]["main"].stringValue
-                currentTemp = temp!-273.15
-                currentTemp = round(currentTemp*100)/100
+                
+                //currentTemp = temp!-273.15
+                //currentTemp = round(currentTemp*100)/100
+                let currentTemp = String(format: "%g", round(temp!-273.15))
+                
                 print(cityName!)
                 print(currentTemp)
                 print(desc)
-                
-                //Stop updating the location
-                self.locationManager.stopUpdatingLocation()
                 
                 //Because it is running on the other thread. Call this function to get to main queue to update label and image values
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -188,3 +204,19 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     }
 }
 
+
+/*func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+ 
+ //Able to get location, do:
+ let currentLocation: CLLocation = newLocation
+ 
+ let timeStamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
+ 
+ print(userID)
+ print(currentLocation.coordinate.latitude)
+ print(currentLocation.coordinate.longitude)
+ print(timeStamp)
+ 
+ updateCurLoc(userID, lat: currentLocation.coordinate.latitude, long: currentLocation.coordinate.longitude, time: timeStamp )
+ 
+ }*/

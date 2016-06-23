@@ -51,6 +51,9 @@
                                 <rect key="frame" x="196" y="516" width="29" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="main_FirstAidButton"/>
+                                <connections>
+                                    <segue destination="gDs-bg-Km4" kind="modal" id="gcF-Gw-NBb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YoC-Hq-kdl">
                                 <rect key="frame" x="252" y="518" width="25" height="25"/>
@@ -80,6 +83,9 @@
                                 <rect key="frame" x="181" y="213" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="main_SearchButton"/>
+                                <connections>
+                                    <segue destination="vpD-gx-5ke" kind="modal" id="blV-Rd-PXH"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c4p-ZH-bav">
                                 <rect key="frame" x="206" y="81" width="81" height="22"/>
@@ -88,7 +94,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather info" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="my7-ev-5BN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather info" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="none" minimumFontSize="10" id="my7-ev-5BN">
                                 <rect key="frame" x="166" y="105" width="131" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -99,7 +105,7 @@
                                 <rect key="frame" x="26" y="51" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BHg-VL-HKp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" id="BHg-VL-HKp">
                                 <rect key="frame" x="166" y="123" width="131" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -110,13 +116,6 @@
                                 <rect key="frame" x="175" y="81" width="23" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cannot load weather information" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" minimumFontSize="9" id="uoN-oU-P5X">
-                                <rect key="frame" x="170" y="72" width="122" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="adH-ZO-FB5">
                                 <rect key="frame" x="41" y="347" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -125,6 +124,13 @@
                                     <segue destination="dfC-bJ-5kb" kind="modal" id="9jo-de-27S"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cannot load weather information" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" minimumFontSize="9" id="uoN-oU-P5X">
+                                <rect key="frame" x="170" y="70" width="122" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -443,6 +449,14 @@
             </objects>
             <point key="canvasLocation" x="1791" y="100"/>
         </scene>
+        <!--searchCyclist-->
+        <scene sceneID="IG5-1q-qTT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="searchCyclist" id="vpD-gx-5ke" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oqA-LS-CbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="754.5" y="-259"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="n9e-T1-AiS">
             <objects>
@@ -483,6 +497,112 @@
             </objects>
             <point key="canvasLocation" x="397" y="734"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="u0T-c1-ASy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gDs-bg-Km4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EXB-TS-CeL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.36078431370000003" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fNN-zX-XsP" kind="relationship" relationship="rootViewController" id="Pll-it-Klc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LbM-8y-K3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="778" y="972"/>
+        </scene>
+        <!--First Aid Information-->
+        <scene sceneID="nzR-K0-gfs">
+            <objects>
+                <tableViewController id="fNN-zX-XsP" customClass="FirstAidTableViewController" customModule="BikeTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="ajR-bq-UFD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="anq-9q-xHr" customClass="infoTableViewCell" customModule="BikeTogether" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="anq-9q-xHr" id="lJf-r0-hXK">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="JJ7-Lc-Le8">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="infoImageView" destination="JJ7-Lc-Le8" id="oub-zP-N37"/>
+                                    <segue destination="1q4-GM-RrD" kind="push" identifier="toDetail" id="xKK-3h-qNR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fNN-zX-XsP" id="4xa-Hi-gw0"/>
+                            <outlet property="delegate" destination="fNN-zX-XsP" id="UBY-VH-5OI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="First Aid Information" id="DtL-pl-VSi">
+                        <barButtonItem key="rightBarButtonItem" image="Home_24px" id="EVi-ZJ-lbC">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="f6e-TM-oox" kind="unwind" unwindAction="backToMain:" id="mIc-8x-RLo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yrr-ym-xNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="f6e-TM-oox" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1214" y="953"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="ZFn-y7-xHb">
+            <objects>
+                <viewController id="1q4-GM-RrD" customClass="detailsViewController" customModule="BikeTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4rd-PZ-1kK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="lj5-yU-j0W">
+                                <rect key="frame" x="0.0" y="64" width="320" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" id="3NS-Gq-zNN">
+                                <rect key="frame" x="20" y="265" width="280" height="265"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="L48-WQ-LzJ">
+                        <barButtonItem key="rightBarButtonItem" image="Home_24px" id="X7L-SP-6br">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="detailTextView" destination="3NS-Gq-zNN" id="taM-xW-0c3"/>
+                        <outlet property="headerImageView" destination="lj5-yU-j0W" id="ImP-S8-50e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zV0-cG-F1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1610" y="941"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Home_24px" width="24" height="24"/>
@@ -494,7 +614,7 @@
         <image name="main_RecordButton" width="500" height="500"/>
         <image name="main_SearchButton" width="500" height="500"/>
         <image name="main_SettingsButton" width="50" height="50"/>
-        <image name="test" width="563" height="353"/>
+        <image name="test" width="300" height="300"/>
         <image name="timer" width="100" height="100"/>
     </resources>
 </document>
