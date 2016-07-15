@@ -21,12 +21,18 @@ class SearchNearbyViewController: UIViewController {
         
         switch segmentControl.selectedSegmentIndex {
         case 0:
+            self.title = "Search for Nearby Cyclists"
             friendView.hidden = false
             routeView.hidden = true
 
         case 1:
+            self.title = "Plan Route"
             routeView.hidden = false
             friendView.hidden = true
+            
+            let PRVC : PlanRouteViewController = self.childViewControllers[0] as! PlanRouteViewController
+            PRVC.viewDidAppear(true)
+
         default:
             break;
         }

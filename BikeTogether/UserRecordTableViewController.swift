@@ -11,17 +11,11 @@ import CoreData
 
 class UserRecordTableViewController: UITableViewController {
 
-    var list: Array<AnyObject>? = []
-    var recordList: Array<String>? = []
+    var ridList: Array<Int>? = []
+    var rnameList: Array<String>? = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -29,7 +23,8 @@ class UserRecordTableViewController: UITableViewController {
         print("===========================")
         print("UserRecordViewController")
         
-        recordList = []
+        rnameList = []
+        ridList = []
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "http://ridebike.atilal.com/showrname.php/")!)
@@ -54,11 +49,12 @@ class UserRecordTableViewController: UITableViewController {
                     
                     print("** Get rname (DBMethod)**")
                     let json = JSON(data: data!)
-                    let count = json["rname"].count
+                    let count = json["route"].count
                     if count > 0 {
                         dispatch_async(dispatch_get_main_queue(), {
                             for i in 0...count-1{
-                                self.recordList?.append(json["rname"][i].string!)
+                                self.rnameList?.append(json["route"][i]["rname"].string!)
+                                self.ridList?.append(Int(json["route"][i]["rid"].string!)!)
                                 self.tableView.reloadData()
                             }
                         })
@@ -86,7 +82,7 @@ class UserRecordTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return recordList!.count
+        return rnameList!.count
     }
 
     
@@ -94,13 +90,13 @@ class UserRecordTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UserRecordTableViewCell
 
         
-        let cellImageLayer: CALayer?  = cell.mapImage.layer
-        cellImageLayer!.cornerRadius = cell.mapImage.frame.size.width / 2
-        cellImageLayer!.masksToBounds = true
+        //let cellImageLayer: CALayer?  = cell.mapImage.layer
+        //cellImageLayer!.cornerRadius = cell.mapImage.frame.size.width / 2
+        //cellImageLayer!.masksToBounds = true
         
         //Text on cell is the name from the array
-        cell.mapImage.contentMode = .ScaleAspectFill
-        cell.routeName.text = recordList![indexPath.row]
+        //cell.mapImage.contentMode = .ScaleAspectFill
+        cell.routeName.text = rnameList![indexPath.row]
         return cell
     }
     
@@ -147,12 +143,16 @@ class UserRecordTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "toIndividualRecord"){
             let x:NSIndexPath? = self.tableView.indexPathForSelectedRow
-            let selectedRow = recordList![x!.row]
+            let selectedRow = rnameList![x!.row]
             let IRVC: IndiRecordViewController = segue.destinationViewController as! IndiRecordViewController
+            IRVC.rid = ridList![(x?.row)!]
             IRVC.rname = selectedRow
             IRVC.title = selectedRow
         }
     }
     
+    @IBAction func toUserRec (sender: UIStoryboardSegue){
+        //For unwind segue to this view controller
+    }
 
 }

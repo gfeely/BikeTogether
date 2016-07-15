@@ -10,7 +10,7 @@ import UIKit
 
 class FirstAidTableViewController: UITableViewController {
     
-    var injuryImage = ["sprain.png", "wound.png", "headinjury.png", "fracture.png"]
+    var injuryImage = ["cut.png", "fracture.png", "headinjury.png", "sprain.png"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,7 @@ class FirstAidTableViewController: UITableViewController {
 
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,6 +52,24 @@ class FirstAidTableViewController: UITableViewController {
         //Text on cell is the name from the array
         cell.infoImageView.image = UIImage(named: injuryImage[indexPath.row])
         cell.infoImageView.contentMode = .ScaleAspectFill
+        print("1")
+        switch injuryImage[indexPath.row] {
+        case "sprain.png":
+            cell.titleLabel.text = "Sprain & Strain"
+            cell.descLabel.text = "Information on how to deal with sprain and strain."
+        case "cut.png":
+            cell.titleLabel.text = "Cut"
+            cell.descLabel.text = "Information on how to treat cuts and grazing."
+        case "headinjury.png":
+            cell.titleLabel.text = "Head Injury"
+            cell.descLabel.text = "Information on what to do when experiencing with a head injury."
+        case "fracture.png":
+            cell.titleLabel.text = "Fracture"
+            cell.descLabel.text = "Information on what to do when experiencing with fracture."
+        default:
+            print()
+        }
+
         
         //cell.infoLabel.text = images[indexPath.row]
         

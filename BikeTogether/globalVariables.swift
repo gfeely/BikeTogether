@@ -27,3 +27,19 @@ extension UIColor {
 
 let redTone = UIColor(r: 231, g: 76, b: 60, a: 255)
 let blueTone = UIColor(r: 96, g: 180, b: 241, a: 255)
+let yellowTone = UIColor(r: 245, g: 207, b: 67, a: 255)
+
+extension UIView {
+    
+    func pb_takeSnapshot() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.mainScreen().scale)
+        
+        drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+        
+        // old style: layer.renderInContext(UIGraphicsGetCurrentContext())
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}

@@ -50,32 +50,23 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         // Save to to online database
         // Add to riderecord, rideactivity
         
-        repeatRname(nameTextField.text!, completionHandler:
-            { result in
-                print("Respond result: \(result)")
-                if result == 0{
-                    normalAlert(self, title: "Name Already Exist", message: "Please re-enter a new route name.")
-                }
-                else{
-                    recordNewRide(userID, rname: self.nameTextField.text!, timeduration: self.timeTaken, distance: self.distance, starttimestamp: self.startTimeStamp, stoptimestamp: self.stopTimeStamp,completionHandler:{ rid in
-                        
-                        if rid != 0{
-                            
-                            var count = 1
-                            
-                            dispatch_async(dispatch_get_main_queue(), {
-                                for i in self.locations{
-                                    recordRideLocation(rid, uid: userID, latitude: i.coordinate.latitude, longitude: i.coordinate.longitude, mapKey: count)
-                                    count += 1
-                                }
-                                dismissViewMethod(self, title: "Success", message: "Your record has been saved.", OnYes: false)
-                            })
-                        }
-                        else{
-                            normalAlert(self, title: "An Error Has Occured", message: "There is an error saving to the online database.")
-                        }
-                    })
-                }
+        recordNewRide(userID, rname: self.nameTextField.text!, timeduration: self.timeTaken, distance: self.distance, starttimestamp: self.startTimeStamp, stoptimestamp: self.stopTimeStamp,completionHandler:{ rid in
+            
+            if rid != 0{
+                
+                var count = 1
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    for i in self.locations{
+                        recordRideLocation(rid, uid: userID, latitude: i.coordinate.latitude, longitude: i.coordinate.longitude, mapKey: count)
+                        count += 1
+                    }
+                    dismissViewMethod(self, title: "Success", message: "Your record has been saved.", OnYes: false)
+                })
+            }
+            else{
+                normalAlert(self, title: "An Error Has Occured", message: "There is an error saving to the online database.")
+            }
         })
     }
     
@@ -85,6 +76,12 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         
         print("===========================")
         print("FinishViewController")
+        
+        totalDistLabel.text = ""
+        timeStamp.text = ""
+        locName.text = ""
+        cityName.text = ""
+        timeTakenLabel.text = ""
         
         //////////////////////////////////////////////////////////////////////////////////
         //User Interface Decorations
@@ -104,7 +101,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
     //Facebook share
         
         let content : FBSDKShareLinkContent = FBSDKShareLinkContent()
-        content.contentURL = NSURL(string: "http://www.facebook.com/")
+        content.contentURL = NSURL(string: "https://www.facebook.com")
         content.contentTitle = "Come Bike Together!"
         
         if(distance < 1000){
@@ -113,7 +110,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
             content.contentDescription = "I just cycled \(round(distance/1000)) km with Bike Together. My time is \(timeTaken). Come beat me!"
         }
         
-        content.imageURL = NSURL(string: "https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/13315649_1199178556768741_202862369797131353_n.jpg?oh=8da6927d9e4e9d852c3232bc96d4e7e3&oe=57DB022F")
+        content.imageURL = NSURL(string: "https://scontent.fbkk5-1.fna.fbcdn.net/v/t1.0-9/13512240_1216978311655432_38099313990545828_n.jpg?oh=434d641f4d72a3f9c753960ac95c9964&oe=5805442B")
         
         let button : FBSDKShareButton = FBSDKShareButton()
         button.shareContent = content

@@ -179,15 +179,9 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         //////////////////////////////////////////////////////////////////////////////////
         //User Interface Decorations
         //Start Button
-        //startButton.layer.cornerRadius = startButton.frame.size.width / 2
-        //startButton.layer.borderWidth = 2
-        //startButton.layer.borderColor = UIColor.whiteColor().CGColor
         startButton.layer.cornerRadius = 20
         
         //Finish Button
-        //stopButton.layer.cornerRadius = startButton.frame.size.width / 2
-        //stopButton.layer.borderWidth = 2
-        //stopButton.layer.borderColor = UIColor.whiteColor().CGColor
         stopButton.layer.cornerRadius = 20
         //////////////////////////////////////////////////////////////////////////////////
     }

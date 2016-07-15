@@ -12,7 +12,8 @@ import CoreLocation
 class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
-    let locWeather = CLLocationManager()
+    var count = 0
+    var checkWeather = false
     
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
@@ -21,8 +22,12 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var errorWeather: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.startAnimating()
         
         // Ask for Location Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -51,18 +56,13 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
                 
         print("===========================")
         print("MainMenuViewController")
+        count = 1
         
         //Update current location
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startMonitoringSignificantLocationChanges()
-            //locationManager.startUpdatingLocation()
-            
-            locWeather.delegate = self
-            locWeather.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locWeather.requestLocation()
-            
         }
         
 
@@ -79,11 +79,12 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if(manager == locWeather){
+        if(count == 1){
             if let location = locations.first {
                 //Use current location for updateWeather
                 let latitudeVal = String(round(location.coordinate.latitude*100)/100)
                 let longitudeVal = String(round(location.coordinate.longitude*100)/100)
+                count = 0
                 updateWeather(latitudeVal, long: longitudeVal)
                 print("Current Position \(location.coordinate.latitude) + \(location.coordinate.longitude)")
             }}
@@ -107,7 +108,8 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
         let apiKey = "&APPID=d2339a59857b86d84ddf37c13c0e4bb2"
         let url = NSURL(string: path1+lat+path2+long+apiKey)
         
-        print(String(url))
+        self.checkWeather = true
+        self.activityIndicator.stopAnimating()
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             
@@ -115,6 +117,11 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
                 
                 //Error retrieving
                 self.errorWeather.hidden = false
+                
+                self.weatherImage.hidden = true
+                self.tempLabel.hidden = true
+                self.cityLabel.hidden = true
+                self.weatherDescription.hidden = true
                 
             }
             else{
@@ -163,7 +170,10 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
                         
                 }
             })
+                
                 //Show weather information
+                self.errorWeather.hidden = true
+                
                 self.weatherImage.hidden = false
                 self.tempLabel.hidden = false
                 self.cityLabel.hidden = false
@@ -189,7 +199,6 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
         //Press No - nothing happens
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
-
     }
     
     @IBAction func backToMain (sender: UIStoryboardSegue){
@@ -204,19 +213,3 @@ class MainMenuViewController: UIViewController, CLLocationManagerDelegate {
     }
 }
 
-
-/*func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
- 
- //Able to get location, do:
- let currentLocation: CLLocation = newLocation
- 
- let timeStamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .NoStyle, timeStyle: .ShortStyle)
- 
- print(userID)
- print(currentLocation.coordinate.latitude)
- print(currentLocation.coordinate.longitude)
- print(timeStamp)
- 
- updateCurLoc(userID, lat: currentLocation.coordinate.latitude, long: currentLocation.coordinate.longitude, time: timeStamp )
- 
- }*/

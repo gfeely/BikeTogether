@@ -10,12 +10,14 @@ import UIKit
 import MapKit
 class NearbyFriendsListViewController: UIViewController,MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    var pickerDataSource = ["Salaya(A)", "Silom(B)", "Ladprao(C)"];
+    var pickerDataSource = ["A", "B", "C"];
     var alert = UIAlertController()
     var friendIDList: Array<String> = []
     var friendNameList: Array<String> = []
     var distanceAwayList: Array<String> = []
     var points: Array<MKPointAnnotation> = []
+    
+    var timer = NSTimer()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
@@ -25,26 +27,35 @@ class NearbyFriendsListViewController: UIViewController,MKMapViewDelegate, UITab
         pickerInAction()
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        timer.invalidate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //var timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(NearbyFriendsListViewController.loadNearbyUsers), userInfo: nil, repeats: true)
+    
     }
     
     override func viewDidAppear(animated: Bool) {
         mapView.delegate = self
         
-        switch userZone
+        timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: #selector(NearbyFriendsListViewController.loadNearbyUsers), userInfo: nil, repeats: true)
+        
+        zoneLabel.text = userZone
+        
+        /*switch userZone
         {
         case "A":
-            zoneLabel.text = "Salaya(A)"
+            zoneLabel.text = "A"
         case "B":
-            zoneLabel.text = "Silom(B)"
+            zoneLabel.text = "B"
         case "C":
-            zoneLabel.text = "Ladprao(C)"
+            zoneLabel.text = "C"
         default:
             zoneLabel.text = "Unknown error"
-        }
+        }*/
         
         loadNearbyUsers()
         
@@ -53,14 +64,20 @@ class NearbyFriendsListViewController: UIViewController,MKMapViewDelegate, UITab
     
     func loadNearbyUsers(){
         
+        print("Update map")
         
         friendIDList = []
         friendNameList = []
+        distanceAwayList = []
         points = []
+        mapView.removeOverlays(mapView.overlays)
+
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
         
         let location = CLLocationCoordinate2DMake(currentLoc.coordinate.latitude, currentLoc.coordinate.longitude)
         
-        let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.1))
+        let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.15, longitudeDelta: 0.15))
         self.mapView.setRegion(region, animated: true)
         addRadiusCircle(location)
         
@@ -88,7 +105,6 @@ class NearbyFriendsListViewController: UIViewController,MKMapViewDelegate, UITab
                 
                 let json = JSON(data: data!)
                 let count = json["user"].count
-                print(json)
                 print("Number of nearby = \(count)")
                 dispatch_async(dispatch_get_main_queue(), {
                     if count > 0 {
@@ -125,18 +141,11 @@ class NearbyFriendsListViewController: UIViewController,MKMapViewDelegate, UITab
                             self.friendNameList.append(name)
                             self.distanceAwayList.append(distanceAwayStr)
                             
-                            /*getName(uid, handler: {
-                                (name) -> Void in
-                                point.title = String(name)
-                                self.friendNameList.append(name)
-                            })*/
-                            
                             print("fid = \(uid), lat = \(latitude),long = \(longitude)")
                         }
-                        self.tableView.reloadData()
-                    }})
-                self.tableView.reloadData()
-                
+                    }
+                    self.tableView.reloadData()
+                })                
             }
         }
         dataTask.resume()
@@ -179,7 +188,7 @@ class NearbyFriendsListViewController: UIViewController,MKMapViewDelegate, UITab
     
     func addRadiusCircle(location: CLLocationCoordinate2D){
         self.mapView.delegate = self
-        let circle = MKCircle(centerCoordinate: location, radius: 5000 as CLLocationDistance)
+        let circle = MKCircle(centerCoordinate: location, radius: 10000 as CLLocationDistance)
         self.mapView.addOverlay(circle)
     }
     
@@ -262,11 +271,11 @@ class NearbyFriendsListViewController: UIViewController,MKMapViewDelegate, UITab
         
         switch zoneLabel.text!
         {
-        case "Salaya(A)":
+        case "A":
             userZone = "A"
-        case "Silom(B)":
+        case "B":
             userZone = "B"
-        case "Ladprao(C)":
+        case "C":
             userZone = "C"
         default:
             userZone = "A"
@@ -298,7 +307,10 @@ class NearbyFriendsListViewController: UIViewController,MKMapViewDelegate, UITab
                 case " 1": print("** Update Zone (Response 1: Success) **")
                 default: print("** Update Zone (Response 0: Unknown error) **")
                 }
-                self.loadNearbyUsers()
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    self.loadNearbyUsers()
+                }
                 self.alert.dismissViewControllerAnimated(true, completion: nil)
             }
         }
