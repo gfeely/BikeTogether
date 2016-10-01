@@ -44,7 +44,7 @@ func signIn(uid: Int64, name: String){
                     createCurLoc(uid, lat: 0, long: 0)
                 case " 2":
                     print("** Sign-in (Response 2: Existing user)")
-                default: print("Response is either 0-3")
+                default: print("** Sign-in error (Response is either 0-3)**")
             }
         }
     }

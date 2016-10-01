@@ -82,7 +82,6 @@ class LogInViewController: UIViewController, FBSDKLoginButtonDelegate {
             else
             {
                 //print(result)
-                
                 if (result.objectForKey("friends") != nil) {
                     let resultdict = result.objectForKey("friends") as! NSDictionary
                     friendData = resultdict.objectForKey("data") as! NSArray

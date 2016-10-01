@@ -18,7 +18,6 @@
 		213CC5511CECF7060017456A /* BikeTogether.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 213CC53C1CECF7060017456A /* BikeTogether.xcdatamodeld */; };
 		213CC5521CECF7060017456A /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC53F1CECF7060017456A /* FinishViewController.swift */; };
 		213CC5531CECF7060017456A /* IndiRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5401CECF7060017456A /* IndiRecordViewController.swift */; };
-		213CC5541CECF7060017456A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 213CC5411CECF7060017456A /* Info.plist */; };
 		213CC5551CECF7060017456A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213CC5421CECF7060017456A /* LaunchScreen.storyboard */; };
 		213CC5561CECF7060017456A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213CC5431CECF7060017456A /* LogInViewController.swift */; };
 		213CC5571CECF7060017456A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213CC5441CECF7060017456A /* Main.storyboard */; };
@@ -45,9 +44,9 @@
 		21BA7CB71CECF6A2003E9B2A /* BikeTogetherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA7CB61CECF6A2003E9B2A /* BikeTogetherUITests.swift */; };
 		21C3FDB21D1B138600D57506 /* PlanRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3FDB11D1B138600D57506 /* PlanRouteViewController.swift */; };
 		21D720851CF893BC00EC38DF /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D720841CF893BC00EC38DF /* FriendViewController.swift */; };
-		21DB27B31D20728700E38DDB /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DB27A71D20725B00E38DDB /* Charts.framework */; };
-		21DB27B41D20728700E38DDB /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21DB27A71D20725B00E38DDB /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21DF15D91D21820B00A8DBF2 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF15D81D21820B00A8DBF2 /* GroupViewController.swift */; };
+		21EBEBAB1D526C94001C92DF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EBEBA41D526C7E001C92DF /* Charts.framework */; };
+		21EBEBAC1D526C94001C92DF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21EBEBA41D526C7E001C92DF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,37 +64,37 @@
 			remoteGlobalIDString = 21BA7C8F1CECF6A2003E9B2A;
 			remoteInfo = BikeTogether;
 		};
-		21DB27A61D20725B00E38DDB /* PBXContainerItemProxy */ = {
+		21EBEBA31D526C7E001C92DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 21DB279F1D20725B00E38DDB /* Charts.xcodeproj */;
+			containerPortal = 21EBEB9C1D526C7E001C92DF /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
 			remoteInfo = "Charts-iOS";
 		};
-		21DB27A81D20725B00E38DDB /* PBXContainerItemProxy */ = {
+		21EBEBA51D526C7E001C92DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 21DB279F1D20725B00E38DDB /* Charts.xcodeproj */;
+			containerPortal = 21EBEB9C1D526C7E001C92DF /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
 			remoteInfo = "Charts-TV";
 		};
-		21DB27AA1D20725B00E38DDB /* PBXContainerItemProxy */ = {
+		21EBEBA71D526C7E001C92DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 21DB279F1D20725B00E38DDB /* Charts.xcodeproj */;
+			containerPortal = 21EBEB9C1D526C7E001C92DF /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
 			remoteInfo = "Charts-OSX";
 		};
-		21DB27AC1D20725B00E38DDB /* PBXContainerItemProxy */ = {
+		21EBEBA91D526C7E001C92DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 21DB279F1D20725B00E38DDB /* Charts.xcodeproj */;
+			containerPortal = 21EBEB9C1D526C7E001C92DF /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
 			remoteInfo = ChartsTests;
 		};
-		21DB27B51D20728700E38DDB /* PBXContainerItemProxy */ = {
+		21EBEBAD1D526C94001C92DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 21DB279F1D20725B00E38DDB /* Charts.xcodeproj */;
+			containerPortal = 21EBEB9C1D526C7E001C92DF /* Charts.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
 			remoteInfo = "Charts-iOS";
@@ -109,7 +108,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				21DB27B41D20728700E38DDB /* Charts.framework in Embed Frameworks */,
+				21EBEBAC1D526C94001C92DF /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,8 +160,8 @@
 		21BA7CB81CECF6A2003E9B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21C3FDB11D1B138600D57506 /* PlanRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanRouteViewController.swift; sourceTree = "<group>"; };
 		21D720841CF893BC00EC38DF /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
-		21DB279F1D20725B00E38DDB /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../../Downloads/Charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		21DF15D81D21820B00A8DBF2 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		21EBEB9C1D526C7E001C92DF /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../../Charts/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				213CC5681CECF77F0017456A /* FBSDKLoginKit.framework in Frameworks */,
-				21DB27B31D20728700E38DDB /* Charts.framework in Frameworks */,
+				21EBEBAB1D526C94001C92DF /* Charts.framework in Frameworks */,
 				213CC5671CECF77F0017456A /* FBSDKCoreKit.framework in Frameworks */,
 				213CC5691CECF77F0017456A /* FBSDKShareKit.framework in Frameworks */,
 			);
@@ -293,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				213CC53E1CECF7060017456A /* Bridging-Header.h */,
-				21DB279F1D20725B00E38DDB /* Charts.xcodeproj */,
+				21EBEB9C1D526C7E001C92DF /* Charts.xcodeproj */,
 				213CC5641CECF77F0017456A /* FBSDKCoreKit.framework */,
 				213CC5651CECF77F0017456A /* FBSDKLoginKit.framework */,
 				213CC5661CECF77F0017456A /* FBSDKShareKit.framework */,
@@ -342,13 +341,13 @@
 			name = Social;
 			sourceTree = "<group>";
 		};
-		21DB27A01D20725B00E38DDB /* Products */ = {
+		21EBEB9D1D526C7E001C92DF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21DB27A71D20725B00E38DDB /* Charts.framework */,
-				21DB27A91D20725B00E38DDB /* Charts.framework */,
-				21DB27AB1D20725B00E38DDB /* Charts.framework */,
-				21DB27AD1D20725B00E38DDB /* ChartsTests.xctest */,
+				21EBEBA41D526C7E001C92DF /* Charts.framework */,
+				21EBEBA61D526C7E001C92DF /* Charts.framework */,
+				21EBEBA81D526C7E001C92DF /* Charts.framework */,
+				21EBEBAA1D526C7E001C92DF /* ChartsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -368,7 +367,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				21DB27B61D20728700E38DDB /* PBXTargetDependency */,
+				21EBEBAE1D526C94001C92DF /* PBXTargetDependency */,
 			);
 			name = BikeTogether;
 			productName = BikeTogether;
@@ -418,7 +417,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Supassara Sujjapong";
 				TargetAttributes = {
 					21BA7C8F1CECF6A2003E9B2A = {
@@ -448,8 +447,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 21DB27A01D20725B00E38DDB /* Products */;
-					ProjectRef = 21DB279F1D20725B00E38DDB /* Charts.xcodeproj */;
+					ProductGroup = 21EBEB9D1D526C7E001C92DF /* Products */;
+					ProjectRef = 21EBEB9C1D526C7E001C92DF /* Charts.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -462,32 +461,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		21DB27A71D20725B00E38DDB /* Charts.framework */ = {
+		21EBEBA41D526C7E001C92DF /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 21DB27A61D20725B00E38DDB /* PBXContainerItemProxy */;
+			remoteRef = 21EBEBA31D526C7E001C92DF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		21DB27A91D20725B00E38DDB /* Charts.framework */ = {
+		21EBEBA61D526C7E001C92DF /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 21DB27A81D20725B00E38DDB /* PBXContainerItemProxy */;
+			remoteRef = 21EBEBA51D526C7E001C92DF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		21DB27AB1D20725B00E38DDB /* Charts.framework */ = {
+		21EBEBA81D526C7E001C92DF /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 21DB27AA1D20725B00E38DDB /* PBXContainerItemProxy */;
+			remoteRef = 21EBEBA71D526C7E001C92DF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		21DB27AD1D20725B00E38DDB /* ChartsTests.xctest */ = {
+		21EBEBAA1D526C7E001C92DF /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = 21DB27AC1D20725B00E38DDB /* PBXContainerItemProxy */;
+			remoteRef = 21EBEBA91D526C7E001C92DF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -498,7 +497,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				213CC5551CECF7060017456A /* LaunchScreen.storyboard in Resources */,
-				213CC5541CECF7060017456A /* Info.plist in Resources */,
 				217FD1031D183571000D5CEB /* searchCyclist.storyboard in Resources */,
 				213CC55B1CECF7060017456A /* Profile.storyboard in Resources */,
 				213CC5501CECF7060017456A /* Assets.xcassets in Resources */,
@@ -587,10 +585,10 @@
 			target = 21BA7C8F1CECF6A2003E9B2A /* BikeTogether */;
 			targetProxy = 21BA7CB31CECF6A2003E9B2A /* PBXContainerItemProxy */;
 		};
-		21DB27B61D20728700E38DDB /* PBXTargetDependency */ = {
+		21EBEBAE1D526C94001C92DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Charts-iOS";
-			targetProxy = 21DB27B51D20728700E38DDB /* PBXContainerItemProxy */;
+			targetProxy = 21EBEBAD1D526C94001C92DF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -609,8 +607,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -654,8 +654,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -674,6 +676,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -681,10 +684,10 @@
 		21BA7CBC1CECF6A2003E9B2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -702,10 +705,10 @@
 		21BA7CBD1CECF6A2003E9B2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
